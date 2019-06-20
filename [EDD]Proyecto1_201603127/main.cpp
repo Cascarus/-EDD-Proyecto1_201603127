@@ -163,7 +163,7 @@ int main() {
 	//Arbol_Capas.graficar();
 
 	Arbol_Capas.elim(3);
-	Arbol_Capas.add(2);
+
 	Arbol_Capas.graficar();
 	
 	system("pause");

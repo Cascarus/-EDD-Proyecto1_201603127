@@ -112,8 +112,8 @@ void AVL::agregar(string nombre) {
 Nodo_Arbol *AVL::mini(Nodo_Arbol *Nodo) {
 	Nodo_Arbol *current = Nodo;
 
-	while (current->izquierda != NULL) {
-		current = current->izquierda;
+	while (current->derecha != NULL) {
+		current = current->derecha;
 	}
 	return current;
 }
@@ -147,9 +147,9 @@ Nodo_Arbol *AVL::eliminar(Nodo_Arbol *Raiz, string nombre) {
 			free(temp);
 		}
 		else {
-			Nodo_Arbol *temp = mini(Raiz->derecha);
+			Nodo_Arbol *temp = mini(Raiz->izquierda);
 			Raiz->nick = temp->nick;
-			Raiz->derecha = eliminar(Raiz->derecha, temp->nick);
+			Raiz->izquierda = eliminar(Raiz->izquierda, temp->nick);
 		}
 	}
 

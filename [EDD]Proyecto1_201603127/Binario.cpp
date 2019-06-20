@@ -30,8 +30,8 @@ Nodo_ABB *minValue(Nodo_ABB *nodo)
 {
 	Nodo_ABB *current = nodo;
 
-	while (current && current->izquierda != NULL)
-		current = current->izquierda;
+	while (current && current->derecha != NULL)
+		current = current->derecha;
 
 	return current;
 }
@@ -62,9 +62,9 @@ Nodo_ABB *Binario::eliminar(Nodo_ABB *raiz, int dato) {
 			return temp;
 		}
 
-		Nodo_ABB *temp = minValue(raiz->derecha);
+		Nodo_ABB *temp = minValue(raiz->izquierda);
 		raiz->id = temp->id;
-		raiz->derecha = eliminar(raiz->derecha, temp->id);
+		raiz->izquierda = eliminar(raiz->izquierda, temp->id);
 	}
 
 		return raiz;
