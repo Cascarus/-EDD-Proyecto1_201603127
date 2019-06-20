@@ -1,0 +1,12 @@
+digraph {
+ rankdir=TB;
+	NodeCapa_4->NodeCapa_2[constraint=false]; 
+	NodeCapa_4[shape=box,style=filled,color=chartreuse1  , label = "-Capa_4 "] 
+	NodeCapa_2->NodeCapa_1[constraint=false]; 
+	NodeCapa_2[shape=box,style=filled,color=chartreuse1  , label = "-Capa_2 "] 
+	NodeCapa_1->NodeCapa_7[constraint=false]; 
+	NodeCapa_1[shape=box,style=filled,color=chartreuse1  , label = "-Capa_1 "] 
+	NodeCapa_7->NodeCapa_5[constraint=false]; 
+	NodeCapa_7[shape=box,style=filled,color=chartreuse1  , label = "-Capa_7 "] 
+	NodeCapa_5[shape=box,style=filled,color=chartreuse1  , label = "-Capa_5 "] 
+}

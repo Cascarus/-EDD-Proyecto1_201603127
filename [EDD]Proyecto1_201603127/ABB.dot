@@ -1,0 +1,23 @@
+digraph g{
+	node [shape=record,width=.9,height=.5,style=filled,color=orangered2];
+	Node5->Node4; 
+	Node5->Node77; 
+	Node4->Node1; 
+	Node1->Node2; 
+
+ 	Node2[label = "Capa_2"] 
+
+ 	Node1[label = "Capa_1"] 
+
+ 	Node4[label = "Capa_4"] 
+	Node77->Node11; 
+	Node11->Node55; 
+
+ 	Node55[label = "Capa_55"] 
+
+ 	Node11[label = "Capa_11"] 
+
+ 	Node77[label = "Capa_77"] 
+
+ 	Node5[label = "Capa_5"] 
+}

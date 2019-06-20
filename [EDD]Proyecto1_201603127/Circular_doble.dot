@@ -1,0 +1,19 @@
+digraph G {
+	node [shape=record,width=.9,height=.5];
+	Node2->Node4; 
+	Node2->Node4[dir=back]; 
+	Node4->Node8; 
+	Node4->Node8[dir=back]; 
+	Node8->Node9; 
+	Node8->Node9[dir=back]; 
+	Node9->Node2; 
+	Node9->Node2[dir=back]; 
+
+ 	Node2[label = "imagen_2"] 
+
+ 	Node4[label = "imagen_4"] 
+
+ 	Node8[label = "imagen_8"] 
+
+ 	Node9[label = "imagen_9"] 
+}

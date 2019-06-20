@@ -1,0 +1,32 @@
+digraph g{
+	node [style=filled,color=orangered2];
+	Node728276->Node4266587; 
+	Node728276->Node6320501; 
+	Node4266587->Node663410; 
+	Node4266587->Node1877766; 
+
+ 	Node663410[label = "Usuario: a"] 
+	Node1877766->Node8520206; 
+	Node1877766->Node5132450; 
+
+ 	Node8520206[label = "Usuario: d"] 
+
+ 	Node5132450[label = "Usuario: h"] 
+
+ 	Node1877766[label = "Usuario: f"] 
+
+ 	Node4266587[label = "Usuario: c"] 
+	Node6320501->Node5166233; 
+	Node6320501->Node1551637; 
+	Node5166233->Node8614026; 
+
+ 	Node8614026[label = "Usuario: k"] 
+
+ 	Node5166233[label = "Usuario: j"] 
+
+ 	Node1551637[label = "Usuario: s"] 
+
+ 	Node6320501[label = "Usuario: r"] 
+
+ 	Node728276[label = "Usuario: i"] 
+}
