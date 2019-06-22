@@ -12,6 +12,9 @@ public:
 	Nodo_ABB() {
 		derecha = NULL;
 		izquierda = NULL;
+		contenido = "";
+		filMax = 0;
+		colMax = 0;
 	}
 
 	int id;
@@ -20,4 +23,7 @@ public:
 	Nodo_Matriz *principal;
 	Nodo_Matriz *filas;
 	Nodo_Matriz *columnas;
+	string contenido;
+	int filMax;
+	int colMax;
 };

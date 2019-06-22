@@ -142,6 +142,7 @@ Nodo_ABB *Binario::ModNodo(Nodo_ABB *raiz,  int dato, Nodo_ABB *matriz) {
 		raiz->principal = matriz->principal;
 		raiz->columnas = matriz->columnas;
 		raiz->filas = matriz->filas;
+		raiz->contenido = matriz->contenido;
 		return raiz;
 	}
 	else {

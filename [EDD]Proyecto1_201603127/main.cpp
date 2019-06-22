@@ -23,7 +23,7 @@ Binario Arbol_Capas = new Binario(true);
 Matriz matri = new Matriz(true);
 
 int ID, fila, columna;
-string color;
+string color, contenido;
 bool encontradoF, encontradoC;
 
 void Graficar();
@@ -186,11 +186,12 @@ int main() {
 	ifstream inFile;
 	inFile.open(ruta);
 
-	bool id, contenido, fin;
-
+	contenido = "";
+	
 	if (inFile) {
 		while (inFile>>palabra)
 		{
+			contenido += palabra = "\n";
 			splitear(palabra);
 		}
 		Nodo_ABB *nodlist = Arbol_Capas.busNodo(1);
@@ -245,6 +246,9 @@ void splitear(string str) {
 		}
 		else if (x == '}') {
 			cout << "se reinician todas las variables" << endl;
+			/*Nodo_ABB *nodlist = Arbol_Capas.busNodo(ID);
+			nodlist->contenido = contenido;
+			Arbol_Capas.modificar(ID, nodlist);*/
 			fila = 0;
 			columna = 0;
 			encontradoC = false;

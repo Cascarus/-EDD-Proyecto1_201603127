@@ -16,6 +16,8 @@ Nodo_ABB *Matriz::agregarMatriz(int id, int fil, int col, string color, Nodo_ABB
 	nodo->principal = Cprincipal;
 	nodo->filas = CabeceraF;
 	nodo->columnas = CabeceraC;
+	nodo->filMax = filMax;
+	nodo->colMax = colMax;
 	return nodo;
 }
 
@@ -51,6 +53,7 @@ void Matriz::Insertar(int id, int fil, int col, string color) {
 		}
 
 		insertarCelda(col, fil, color);
+		asignar_limites(fil,col);
 	}
 }
 
@@ -318,6 +321,15 @@ Nodo_Matriz *Matriz::ObtenerCelda(int col, int fil) {
 		}
 	}
 	return NULL;
+}
+
+void Matriz::asignar_limites(int fil, int col) {
+	if (fil > filMax) {
+		filMax = fil;
+	}
+	if (col > colMax) {
+		colMax = col;
+	}
 }
 
 

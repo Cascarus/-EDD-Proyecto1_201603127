@@ -14,6 +14,10 @@ using namespace std;
 
 class Matriz
 {
+private:
+	int filMax =0;
+	int colMax =0;
+
 public:
 	Nodo_Matriz *CabeceraC;
 	Nodo_Matriz *CabeceraF;
@@ -21,6 +25,7 @@ public:
 	bool encontradofil = false;
 	bool encontradoCol = false;
 	string relaciones = "", labels = "", rank = "";
+	
 
 	Matriz(bool c);
 	Nodo_ABB *agregarMatriz(int id, int fil, int col, string color, Nodo_ABB *nodo);
@@ -35,5 +40,6 @@ public:
 	Nodo_Matriz *ObtenerCelda(int col, int fil);
 	void graficar(int id, Nodo_Matriz *principal);
 	void recorrer(Nodo_Matriz *inicio);
+	void asignar_limites(int fil, int col);
 };
 
