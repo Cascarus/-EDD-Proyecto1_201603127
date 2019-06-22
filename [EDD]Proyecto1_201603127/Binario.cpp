@@ -8,6 +8,30 @@ Nodo_ABB *nuevoNod(int dato) {
 	return temp;
 }
 
+bool Binario::existeB(Nodo_ABB *raiz, int dato) {
+	
+	if (raiz == NULL) {
+		return false;
+	}
+
+	if (raiz->id == dato) {
+		return true;
+	} else {
+		if (dato < raiz->id) {
+			return existeB(raiz->izquierda, dato);
+		}
+		else {
+			return existeB(raiz->derecha, dato);
+		}
+	}
+}
+
+bool Binario::existe(int dato) {
+	return existeB(raiz, dato);
+}
+
+
+
 Nodo_ABB *Binario::insertar(Nodo_ABB *raiz,int dato) {
 
 	if (raiz == NULL) {
@@ -23,7 +47,13 @@ Nodo_ABB *Binario::insertar(Nodo_ABB *raiz,int dato) {
 }
 
 void Binario::add(int dato) {
-	raiz = insertar(raiz,dato);
+	if (!existe(dato)) {
+		raiz = insertar(raiz, dato);
+	}
+	else {
+		cout << "El dato ya existe" << endl;
+	}
+	
 }
 
 Nodo_ABB *minValue(Nodo_ABB *nodo)
@@ -64,6 +94,9 @@ Nodo_ABB *Binario::eliminar(Nodo_ABB *raiz, int dato) {
 
 		Nodo_ABB *temp = minValue(raiz->izquierda);
 		raiz->id = temp->id;
+		raiz->principal = temp->principal;
+		raiz->filas = temp->filas;
+		raiz->columnas = temp->columnas;
 		raiz->izquierda = eliminar(raiz->izquierda, temp->id);
 	}
 
@@ -71,7 +104,61 @@ Nodo_ABB *Binario::eliminar(Nodo_ABB *raiz, int dato) {
 }
 
 void Binario::elim(int dato) {
-	raiz = eliminar(raiz, dato);
+	if (existe(dato)) {
+		raiz = eliminar(raiz, dato);
+	} else {
+		cout << "El dato " << dato << " no existe" << endl;
+	}
+}
+
+Nodo_ABB *Binario::buscarNodo(Nodo_ABB *raiz, int dato) {
+	if (raiz == NULL) {
+		return NULL;
+	}
+
+	if (raiz->id == dato) {
+		return raiz;
+	}
+	else {
+		if (dato < raiz->id) {
+			return buscarNodo(raiz->izquierda, dato);
+		}
+		else {
+			return buscarNodo(raiz->derecha, dato);
+		}
+	}
+}
+
+Nodo_ABB *Binario::busNodo(int dato) {
+	if (existe(dato)) {
+		return buscarNodo(raiz, dato);
+	}
+	return NULL;
+}
+
+Nodo_ABB *Binario::ModNodo(Nodo_ABB *raiz,  int dato, Nodo_ABB *matriz) {
+	
+	if (raiz->id == dato) {
+		raiz->principal = matriz->principal;
+		raiz->columnas = matriz->columnas;
+		raiz->filas = matriz->filas;
+		return raiz;
+	}
+	else {
+		if (dato < raiz->id) {
+			raiz-> izquierda = ModNodo(raiz->izquierda, dato, matriz);
+		}
+		else {
+			raiz->derecha = ModNodo(raiz->derecha, dato, matriz);
+		}
+	}
+	return raiz;
+}
+
+void Binario::modificar(int dato, Nodo_ABB *matriz) {
+	if (existe(dato)){
+		raiz = ModNodo(raiz, dato, matriz);
+	}
 }
 
 void Binario::graficar() {

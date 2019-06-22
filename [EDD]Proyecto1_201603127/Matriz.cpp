@@ -5,8 +5,19 @@ using namespace std;
 
 Matriz::Matriz(bool c)
 {
+	Cprincipal = NULL;
+	CabeceraC = NULL;
+	CabeceraF = NULL;
 }
 
+Nodo_ABB *Matriz::agregarMatriz(int id, int fil, int col, string color, Nodo_ABB *nodo) {
+	Cprincipal = nodo->principal;
+	Insertar(id,fil,col,color);
+	nodo->principal = Cprincipal;
+	nodo->filas = CabeceraF;
+	nodo->columnas = CabeceraC;
+	return nodo;
+}
 
 void Matriz::Insertar(int id, int fil, int col, string color) {
 	encontradofil = false;

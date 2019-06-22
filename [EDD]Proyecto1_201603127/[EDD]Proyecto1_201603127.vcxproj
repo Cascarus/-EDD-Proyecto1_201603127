@@ -115,6 +115,9 @@
     <ClInclude Include="Lista_Doble_Circular.h" />
     <ClInclude Include="Lista_Simple.h" />
     <ClInclude Include="Matriz.h" />
+    <ClInclude Include="Nodo_ABB.h" />
+    <ClInclude Include="Nodo_Matriz.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AVL.cpp" />
@@ -123,6 +126,7 @@
     <ClCompile Include="Lista_Simple.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matriz.cpp" />
+    <ClCompile Include="Nodo_Matriz.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

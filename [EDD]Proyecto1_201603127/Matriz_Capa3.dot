@@ -1,0 +1,41 @@
+digraph G {
+	node [shape=record,width=.9,height=.5];
+	Node5874813->Node4266587; 
+	Node5874813->Node4266587[dir=back]; 
+	Node5874813->Node2235727; 
+	Node5874813->Node2235727[dir=back]; 
+	Node2235727->Node6802684; 
+	Node2235727->Node6802684[dir=back]; 
+	Node6802684->Node5382310; 
+	Node6802684->Node5382310[dir=back]; 
+	Node5382310->Node2542546; 
+	Node5382310->Node2542546[dir=back]; 
+	Node2542546->Node663410; 
+	Node4266587->Node663410[constraint=false]
+
+ 	Node5874813[label = "Capa 1"] 
+
+ 	Node4266587[label = "Y:4"] 
+
+ 	Node5874813[label = "Capa 1"] 
+
+ 	Node2235727[label = "X: 1"] 
+
+ 	Node2235727[label = "X: 1"] 
+
+ 	Node6802684[label = "X: 2"] 
+
+ 	Node6802684[label = "X: 2"] 
+
+ 	Node5382310[label = "X: 3"] 
+
+ 	Node5382310[label = "X: 3"] 
+
+ 	Node2542546[label = "X: 4"] 
+
+ 	Node663410[color="#92D050",style=filled, label = "4,4\n #92D050"] 
+
+ 	Node2542546[label = "X: 4"] 
+	{rank = same; Node5874813,Node5874813,Node2235727,Node6802684,Node5382310,Node2542546};
+	{rank = same; Node4266587,Node4266587,Node663410};
+}

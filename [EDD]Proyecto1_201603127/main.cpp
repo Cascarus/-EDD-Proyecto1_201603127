@@ -20,13 +20,16 @@ AVL Usuarios = new AVL(true);
 Lista_Doble_Circular Imagenes = new Lista_Doble_Circular(true);
 Lista_Simple Capas_IMG = new Lista_Simple(true);
 Binario Arbol_Capas = new Binario(true);
+Matriz matri = new Matriz(true);
 
-int random, turnos = 0;
-string bitacora = "";
+int ID, fila, columna;
+string color;
+bool encontradoF, encontradoC;
 
 void Graficar();
 void insertar();
 void Turno();
+void splitear(string s);
 string cadena(int numero);
 
 int main() {
@@ -152,7 +155,7 @@ int main() {
 	Capas_IMG.eliminar(4);
 	Capas_IMG.graficar();
 	*/
-	
+	/*
 	Arbol_Capas.add(5);
 	Arbol_Capas.add(3);
 	Arbol_Capas.add(77);
@@ -160,14 +163,100 @@ int main() {
 	Arbol_Capas.add(11);
 	Arbol_Capas.add(1);
 	Arbol_Capas.add(55);
+	Arbol_Capas.add(55);
 	//Arbol_Capas.graficar();
 
-	Arbol_Capas.elim(3);
-
 	Arbol_Capas.graficar();
+
+	Matriz matri = new Matriz(true);
+	Nodo_ABB *nodlist = Arbol_Capas.busNodo(3);
+	for (int a = 0; a < 3; a++) {
+		nodlist = matri.agregarMatriz(3, a+1, a+1,"#FE2EC8" , nodlist);
+		nodlist = matri.agregarMatriz(3, a+1, a+2, "#FE2EC8", nodlist);
+		Arbol_Capas.modificar(3, nodlist);
+	}
+
+	nodlist = Arbol_Capas.busNodo(3);
+	matri.graficar(3, nodlist->principal);
+	*/
+	string ruta,palabra;
+	cout << "Ingrese la ruta del archivo>>";
+	cin >> ruta;
+
+	ifstream inFile;
+	inFile.open(ruta);
+
+	bool id, contenido, fin;
+
+	if (inFile) {
+		while (inFile>>palabra)
+		{
+			splitear(palabra);
+		}
+		Nodo_ABB *nodlist = Arbol_Capas.busNodo(1);
+		Matriz matri = new Matriz(true);
+		matri.graficar(nodlist->id, nodlist->principal);
+	}
+	else {
+		cout << "No se pudo abrir el archivo!!"<<endl;
+	}
+	inFile.close();
+
 	
+
 	system("pause");
 	return 0;
+}
+
+void splitear(string str) {
+	string palabra = "";
+	for (auto x: str) {
+		if (x == '{') {
+			cout << "Se crea el nodo ABB con id: " << palabra << endl;
+			ID = atoi(palabra.c_str());
+			Arbol_Capas.add(ID);
+			matri = new Matriz(true);
+			palabra = "";
+		}
+		else if (x == ',') {
+
+			if (encontradoF == false) {
+				cout << "la coordenada en fila es: "<< palabra << endl;
+				fila = atoi(palabra.c_str());
+				encontradoF = true;
+			}
+			else if (encontradoC == false) {
+				cout << "la coordenada en columna es: " << palabra << endl;
+				columna = atoi(palabra.c_str());
+				encontradoC = true;
+			}
+			palabra = "";
+		}
+		else if (x == ';') {
+			cout << "El color de la celda es: " << palabra << endl;
+			color = palabra;
+			cout << "Se crea el nodo en la matriz y se guarda en el ABB" <<endl;
+			Nodo_ABB *nodlist = Arbol_Capas.busNodo(ID);
+			nodlist = matri.agregarMatriz(ID, fila, columna, color, nodlist);
+			Arbol_Capas.modificar(ID, nodlist);
+			encontradoC = false;
+			encontradoF = false;
+			palabra = "";
+		}
+		else if (x == '}') {
+			cout << "se reinician todas las variables" << endl;
+			fila = 0;
+			columna = 0;
+			encontradoC = false;
+			encontradoF = false;
+			ID = 0;
+		}
+		else
+		{
+			palabra += x;
+		}
+	}
+	cout<<"???"<<palabra<<endl;
 }
 
 /*
