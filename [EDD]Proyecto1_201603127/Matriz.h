@@ -6,10 +6,7 @@
 #include "Nodo_Matriz.h"
 #include "Nodo_ABB.h"
 
-
 using namespace std;
-
-
 
 
 class Matriz
@@ -39,6 +36,7 @@ public:
 	void buscarCelda(int col, int fil);
 	Nodo_Matriz *ObtenerCelda(int col, int fil);
 	void graficar(int id, Nodo_Matriz *principal);
+	void graficar2(int id, Nodo_Matriz *principal);
 	void recorrer(Nodo_Matriz *inicio);
 	void asignar_limites(int fil, int col);
 };

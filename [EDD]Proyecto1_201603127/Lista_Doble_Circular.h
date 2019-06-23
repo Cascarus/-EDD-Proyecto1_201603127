@@ -5,6 +5,8 @@
 #include <sstream>
 #include <algorithm>
 #include <string> 
+#include "Lista_Simple.h"
+#include "Matriz.h"
 
 using namespace std;
 
@@ -14,35 +16,42 @@ public:
 	Nodo_c() {
 		Siguiente = NULL;
 		Anterior = NULL;
+		primero_lista = NULL;
+		colMax = 0;
+		filMax = 0;
 	}
 	int id;
 	Nodo_c *Siguiente;
 	Nodo_c *Anterior;
-	//Nodo_List *primero;
-
+	Nodo_Lista *primero_lista;
+	int colMax, filMax;
 
 };
 
 
 class Lista_Doble_Circular
 {
+private:
+	void splitear_Capas(string str, Matriz imagen_completa, int id);
+
 public:
 	Nodo_c *primero;
 	Nodo_c *ultimo;
-	string labels = "", relaciones = "";
+	string labels = "", relaciones = "", listas = "", ranks = "";
 
 	Lista_Doble_Circular(bool a) {
 		ultimo = NULL;
 		primero = NULL;
 	}
 
-	void insertarNuevo(int dato);
+	void insertarNuevo(int dato, Nodo_Lista *&lista);
 	void mostrar();
 	Nodo_c *buscarNodo(int dato);
 	void ModNodo(int dato, Nodo_c *matri);
 	void eliminar(int x);
 	void recorrer(Nodo_c *primero);
 	void graf();
+	void crear_IMG(Nodo_c *nodo);
 	string cadena(int n);
 };
 

@@ -355,6 +355,38 @@ void Matriz::graficar(int id, Nodo_Matriz *principal) {
 	system(command2);
 }
 
+void Matriz::graficar2(int id, Nodo_Matriz *principal) {
+	string cuerpo = "";
+	Nodo_Matriz *tempY = principal->Abajo;
+	Nodo_Matriz *tempX;
+
+	while (tempY != NULL) {
+		cuerpo += "<tr>";
+		tempX = tempY->Siguiente;
+		while (tempX != NULL) {
+			cuerpo += "<td BGCOLOR = \"" + tempX->color + "\" height=\"40\" width=\"40\"></td>";
+			tempX = tempX->Siguiente;
+		}
+		cuerpo += "</tr>\n";
+		tempY = tempY->Abajo;
+	}
+
+
+	ofstream archivo;
+	archivo.open("Imagen_" + cadena(id) + ".dot");
+	archivo << "digraph G {" << endl;
+	archivo << "\tnode [shape=none] \nMat1 [label=<\n <table border=\"0\" cellborder=\"0\" cellspacing = \"2\">" << endl;
+	archivo << cuerpo;
+	archivo << "</table>>]; \n }" << endl;
+	archivo.close();
+	string str = "dot -Tpng Imagen_" + cadena(id) + ".dot -o Imagen_" + cadena(id) + ".png -Gcharset=latin1";
+	const char *command = str.c_str();
+	system(command);
+	str = "Imagen_" + cadena(id) + ".png";
+	const char *command2 = str.c_str();
+	system(command2);
+}
+
 void Matriz::recorrer(Nodo_Matriz *inicio) {
 	Nodo_Matriz *tempY = inicio;
 	Nodo_Matriz *tempX = inicio;

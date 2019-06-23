@@ -1,9 +1,9 @@
 #include "Lista_Simple.h"
 
-void Lista_Simple::agregar(int dato) {
+void Lista_Simple::agregar(int dato, Nodo_ABB *&capa) {
 	Nodo_Lista *nuevo = new Nodo_Lista();
 	nuevo->dato = dato;
-
+	nuevo->capa = capa;
 	if (primero == NULL) {
 		primero = nuevo;
 		primero->siguiente = NULL;
@@ -13,6 +13,7 @@ void Lista_Simple::agregar(int dato) {
 		nuevo->siguiente = NULL;
 		ultimo = nuevo;
 	}
+	buscar_dim_mayores(capa);
 }
 
 void Lista_Simple::eliminar(int dato) {
@@ -55,6 +56,15 @@ void Lista_Simple::eliminar(int dato) {
 	}
 }
 
+void Lista_Simple::buscar_dim_mayores(Nodo_ABB *&capa) {
+	if (capa->colMax > colMax) {
+		colMax = capa->colMax;
+	}
+	if (capa->filMax > filaMax) {
+		filaMax = capa->filMax;
+	}
+}
+
 void Lista_Simple::graficar() {
 	string grafica = "";
 	ofstream archivo;
@@ -78,6 +88,19 @@ string Lista_Simple::recorrer(Nodo_Lista *raiz) {
 		} 
 		graf += "\tNodeCapa_" + cadena(actual->dato) + "[shape=box,style=filled,color=chartreuse1  , label = \"Capa_" + cadena(actual->dato) + " \"] \n";
 		graf += recorrer(actual->siguiente);
+	}
+	return graf;
+}
+
+string Lista_Simple::recorrer2(int no,Nodo_Lista *raiz) {
+	string graf = "";
+	Nodo_Lista *actual = raiz;
+	if (raiz != NULL) {
+		if (actual->siguiente != NULL) {
+			graf += "\tNodeCapa_" + cadena(actual->dato) + "_" + cadena(no) + "->" + "NodeCapa_" + cadena(actual->siguiente->dato) + "_" + cadena(no) + "; \n";
+		}
+		graf += "\tNodeCapa_" + cadena(actual->dato) + "_" + cadena(no) + "[shape=box,style=filled,color=chartreuse1  , label = \"Capa_" + cadena(actual->dato) + " \"] \n";
+		graf += recorrer2(no,actual->siguiente);
 	}
 	return graf;
 }

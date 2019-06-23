@@ -5,6 +5,7 @@
 #include <sstream>
 #include <algorithm>
 #include <string> 
+#include "Nodo_Matriz.h"
 
 class Nodo_ABB {
 
