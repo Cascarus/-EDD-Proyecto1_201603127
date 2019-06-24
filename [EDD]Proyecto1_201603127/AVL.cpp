@@ -189,42 +189,23 @@ Nodo_Arbol *AVL::eliminar(Nodo_Arbol *Raiz, string nombre) {
 void AVL::my_delete(string nombre) {
 	raiz = eliminar(raiz, nombre);
 }
-/*
-void update(String nick, String contra) {
-	actualizar(raiz, nick, contra);
+
+void AVL::update(string nombre, Nodo_c *&actual) {
+	actualizar(raiz, nombre, actual);
 }
 
-void actualizar(Nodo_Arbol current, String nick, String contra) {
-	if (current != null) {
-		if (current.nick == nick) {
-			current.contrasenia = contra;
-			System.out.println("Actualizo el dato con exito");
+void AVL::actualizar(Nodo_Arbol *&current, string nick, Nodo_c *&actual) {
+	if (current != NULL) {
+		if (current->nick == nick) {
+			current->primero = actual;
 		}
 		else {
-			actualizar(current.izquierda, nick, contra);
-			actualizar(current.derecha, nick, contra);
+			actualizar(current->izquierda, nick, actual);
+			actualizar(current->derecha, nick, actual);
 		}
 	}
 }
 
-void  updateLista(Nodo_Arbol current) {
-	addLista(raiz, current);
-}
-
-void addLista(Nodo_Arbol raiz, Nodo_Arbol current) {
-	if (raiz != null) {
-		if (raiz.nick.equals(current.nick)) {
-			raiz.inicio = current.inicio;
-			System.out.println("Se ha ingresado la lista exitosamente");
-		}
-		else {
-			addLista(raiz.izquierda, current);
-			addLista(raiz.derecha, current);
-		}
-
-	}
-}
-*/
 Nodo_Arbol *AVL::buscarNodo(string nick) {
 	Nodo_Arbol *current = raiz;
 	string data = nick;
@@ -240,6 +221,22 @@ Nodo_Arbol *AVL::buscarNodo(string nick) {
 		return NULL;
 	}
 
+}
+
+bool AVL::existe(string usuario) {
+	string data = usuario;
+	std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+
+	Nodo_Arbol *temp = buscarNod(raiz, data);
+
+	if (temp != NULL) {
+		cout << "Se ha encontrado " << temp->nick << endl;
+		return true;
+	}
+	else {
+		cout << "No se ha encontrado " << usuario;
+		return false;
+	}
 }
 
 Nodo_Arbol *AVL::buscarNod(Nodo_Arbol *raiz, string nick) {
@@ -269,7 +266,7 @@ void AVL::graficar() {
 
 		arch.open("Arbol_AVL.dot");
 		arch<<"digraph g{"<<endl;
-		arch<<"\tnode [style=filled,color=orangered2];\n";
+		//arch<<"\tnode [style=filled,color=orangered2];\n";
 
 		recorrer(raiz);
 
@@ -288,14 +285,14 @@ void AVL::recorrer(Nodo_Arbol *inicio) {
 		if (inicio->derecha != NULL) {
 			grafica += "\tNode" + cadena(inicio->hash) + "->" + "Node" + cadena(inicio->derecha->hash) + "; \n";
 		}
-		/*if (inicio.inicio != null) {
-			Lista_Simple lista = new Lista_Simple();
-			grafica += "\tNode" + inicio.hashCode() + "->" + "Node" + inicio.inicio.hashCode() + "[style=dotted]; \n";
-			grafica += lista.recorre(inicio.inicio);
-		}*/
+		if (inicio->primero != NULL) {
+			Lista_Doble_Circular lista = new Lista_Doble_Circular(true);
+			grafica += "\tNode" + cadena(inicio->hash) + "->" + "Node" + cadena(inicio->primero->id) + "[style=dotted]; \n";
+			grafica += lista.recorrer2(inicio->primero);
+		}
 		recorrer(inicio->izquierda);
 		recorrer(inicio->derecha);
-		grafica += "\n \tNode" + cadena(inicio->hash) + "[label = \"Usuario: " + inicio->nick + "\"] \n";
+		grafica += "\n \tNode" + cadena(inicio->hash) + "[style=filled,color=orangered2,label = \"Usuario: " + inicio->nick + "\"] \n";
 	}
 }
 

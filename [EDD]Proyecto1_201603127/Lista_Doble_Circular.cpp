@@ -176,29 +176,6 @@ void Lista_Doble_Circular::eliminar(int x) {
 	}
 }
 
-void Lista_Doble_Circular::recorrer(Nodo_c *primero) {
-	Nodo_c *current = primero;
-	if (current != NULL) {
-		ranks = "{ rank = same; Node" + cadena(current->id);
-		do {
-			relaciones += "\tNode" + cadena(current->id) + "->" + "Node" + cadena(current->Siguiente->id) + "; \n";
-			relaciones += "\tNode" + cadena(current->id) + "->" + "Node" + cadena(current->Siguiente->id) + "[dir=back]; \n";
-			
-			if (current->primero_lista != NULL) {
-				relaciones += "\tNode" + cadena(current->id) + "->" + "NodeCapa_" + cadena(current->primero_lista->dato) + "_" + cadena(current->id) + "; \n";
-				Lista_Simple lista = new Lista_Simple(true);
-				listas += lista.recorrer2(current->id,current->primero_lista);
-			}
-
-			labels += "\n \tNode" + cadena(current->id) + "[label = \"imagen_" + cadena(current->id) + "\"] \n";
-			ranks += ",Node" + cadena(current->id);
-			current = current->Siguiente;
-		} while (current != primero);
-		ranks += "};\n";
-	}
-
-}
-
 void Lista_Doble_Circular::graf() {
 
 		relaciones = "";
@@ -222,13 +199,53 @@ void Lista_Doble_Circular::graf() {
 		system("Circular_Doble.png");
 }
 
+void Lista_Doble_Circular::recorrer(Nodo_c *primero) {
+	Nodo_c *current = primero;
+	if (current != NULL) {
+		ranks = "{ rank = same; Node" + cadena(current->id);
+		do {
+			relaciones += "\tNode" + cadena(current->id) + "->" + "Node" + cadena(current->Siguiente->id) + "; \n";
+			relaciones += "\tNode" + cadena(current->id) + "->" + "Node" + cadena(current->Siguiente->id) + "[dir=back]; \n";
+
+			if (current->primero_lista != NULL) {
+				relaciones += "\tNode" + cadena(current->id) + "->" + "NodeCapa_" + cadena(current->primero_lista->dato) + "_" + cadena(current->id) + "; \n";
+				Lista_Simple lista = new Lista_Simple(true);
+				listas += lista.recorrer2(current->id, current->primero_lista);
+			}
+
+			labels += "\n \tNode" + cadena(current->id) + "[label = \"imagen_" + cadena(current->id) + "\"] \n";
+			ranks += ",Node" + cadena(current->id);
+			current = current->Siguiente;
+		} while (current != primero);
+		ranks += "};\n";
+	}
+
+}
+
+string Lista_Doble_Circular::recorrer2(Nodo_c *&primero) {
+	Nodo_c *current = primero;
+	relaciones = "";
+	labels = "";
+	string todo = "";
+
+	if (current != NULL) {
+		do {
+			if (current->Siguiente != primero) {
+				relaciones += "\tNode" + cadena(current->id) + "->" + "Node" + cadena(current->Siguiente->id) + "; \n";
+			}
+			labels += "\n \tNode" + cadena(current->id) + "[shape=record,width=.9,height=.5,label = \"imagen_" + cadena(current->id) + "\"] \n";
+			current = current->Siguiente;
+		} while (current != primero);
+	}
+	todo = relaciones + labels;
+	return todo;
+}
 
 void Lista_Doble_Circular::crear_IMG(Nodo_c *nodo) {
 	Matriz imagen_completa = new Matriz(true);
 	Nodo_Lista *temporal = nodo->primero_lista;
 	string contenido, linea;
-	//Lista_Simple lista_capas = new Lista_Simple(nodo->primero_lista);
-
+	
 	if (temporal != NULL) {
 
 		for (int fil = 0; fil <= nodo->filMax; fil++) {
@@ -236,7 +253,6 @@ void Lista_Doble_Circular::crear_IMG(Nodo_c *nodo) {
 				imagen_completa.Insertar(nodo->id, fil + 1, col + 1, "#FFFFFF");
 			}
 		}
-
 
 		while (temporal != NULL)
 		{
@@ -246,16 +262,7 @@ void Lista_Doble_Circular::crear_IMG(Nodo_c *nodo) {
 		}
 	}
 
-	
-
 	imagen_completa.graficar2(nodo->id, imagen_completa.Cprincipal);
-}
-
-
-string Lista_Doble_Circular::cadena(int n) {
-	stringstream flujo;
-	flujo << n;
-	return(flujo.str());
 }
 
 void Lista_Doble_Circular::splitear_Capas(string str, Matriz imagen_completa, int id) {
@@ -266,10 +273,6 @@ void Lista_Doble_Circular::splitear_Capas(string str, Matriz imagen_completa, in
 
 	for (auto x : str) {
 		if (x == '{') {
-			//cout << "Se crea el nodo ABB con id: " << palabra << endl;
-			//ID = atoi(palabra.c_str());
-			//Arbol_Capas.add(ID);
-			//matri = new Matriz(true);
 			encontradoC = false;
 			encontradoF = false;
 			palabra = "";
@@ -287,28 +290,26 @@ void Lista_Doble_Circular::splitear_Capas(string str, Matriz imagen_completa, in
 			}
 			palabra = "";
 		} else if (x == ';') {
-			//cout << "El color de la celda es: " << palabra << endl;
 			color = palabra;
-			//cout << "Se crea el nodo en la matriz y se guarda en el ABB" << endl;
 			imagen_completa.Insertar(id, fila, columna, color);
 			encontradoC = false;
 			encontradoF = false;
 			palabra = "";
 		} else if (x == '}') {
-			//cout << "se reinician todas las variables" << endl;
-			//Nodo_ABB *nodlist = Arbol_Capas.busNodo(ID);
-			//nodlist->contenido = contenido;
-			//Arbol_Capas.modificar(ID, nodlist);
 			fila = 0;
 			columna = 0;
 			encontradoC = false;
 			encontradoF = false;
-			//ID = 0;
 		} else if (x == '\n') {
 			palabra = "";
 		} else {
 			palabra += x;
 		}
 	}
-	//cout<<"???"<<palabra<<endl;
+}
+
+string Lista_Doble_Circular::cadena(int n) {
+	stringstream flujo;
+	flujo << n;
+	return(flujo.str());
 }

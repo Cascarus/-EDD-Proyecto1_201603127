@@ -53,5 +53,7 @@ public:
 	void graf();
 	void crear_IMG(Nodo_c *nodo);
 	string cadena(int n);
+	string recorrer2(Nodo_c *&primero);
+
 };
 

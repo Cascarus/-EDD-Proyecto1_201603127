@@ -1,32 +1,46 @@
 digraph g{
-	node [style=filled,color=orangered2];
-	Node728276->Node4266587; 
-	Node728276->Node6320501; 
-	Node4266587->Node663410; 
-	Node4266587->Node1877766; 
+	Node4718503->Node5356557; 
+	Node4718503->Node7246478; 
+	Node5356557->Node828263; 
+	Node5356557->Node8486857; 
+	Node5356557->Node1[style=dotted]; 
+	Node1->Node2; 
 
- 	Node663410[label = "Usuario: a"] 
-	Node1877766->Node8520206; 
-	Node1877766->Node5132450; 
+ 	Node1[shape=record,width=.9,height=.5,label = "imagen_1"] 
 
- 	Node8520206[label = "Usuario: d"] 
+ 	Node2[shape=record,width=.9,height=.5,label = "imagen_2"] 
+	Node828263->Node3781122; 
+	Node828263->Node1632638; 
+	Node3781122->Node30[style=dotted]; 
 
- 	Node5132450[label = "Usuario: h"] 
+ 	Node30[shape=record,width=.9,height=.5,label = "imagen_30"] 
 
- 	Node1877766[label = "Usuario: f"] 
+ 	Node3781122[style=filled,color=orangered2,label = "Usuario: ALV"] 
 
- 	Node4266587[label = "Usuario: c"] 
-	Node6320501->Node5166233; 
-	Node6320501->Node1551637; 
-	Node5166233->Node8614026; 
+ 	Node1632638[style=filled,color=orangered2,label = "Usuario: ECYS"] 
 
- 	Node8614026[label = "Usuario: k"] 
+ 	Node828263[style=filled,color=orangered2,label = "Usuario: Batman"] 
 
- 	Node5166233[label = "Usuario: j"] 
+ 	Node8486857[style=filled,color=orangered2,label = "Usuario: Kapi"] 
 
- 	Node1551637[label = "Usuario: s"] 
+ 	Node5356557[style=filled,color=orangered2,label = "Usuario: EDD"] 
+	Node7246478->Node7778244; 
+	Node7246478->Node6277155; 
+	Node7246478->Node4[style=dotted]; 
 
- 	Node6320501[label = "Usuario: r"] 
+ 	Node4[shape=record,width=.9,height=.5,label = "imagen_4"] 
+	Node7778244->Node6722320; 
 
- 	Node728276[label = "Usuario: i"] 
+ 	Node6722320[style=filled,color=orangered2,label = "Usuario: super"] 
+
+ 	Node7778244[style=filled,color=orangered2,label = "Usuario: equiD"] 
+	Node6277155->Node4072473; 
+
+ 	Node4072473[style=filled,color=orangered2,label = "Usuario: userZ"] 
+
+ 	Node6277155[style=filled,color=orangered2,label = "Usuario: userY"] 
+
+ 	Node7246478[style=filled,color=orangered2,label = "Usuario: userA"] 
+
+ 	Node4718503[style=filled,color=orangered2,label = "Usuario: MarioB"] 
 }

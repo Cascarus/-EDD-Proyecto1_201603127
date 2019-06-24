@@ -18,19 +18,21 @@ Matriz mat1 = new Matriz(true);
 Matriz mat2 = new Matriz(true);
 AVL Usuarios = new AVL(true);
 Lista_Doble_Circular Imagenes = new Lista_Doble_Circular(true);
+Lista_Doble_Circular ImagenesUsuario = new Lista_Doble_Circular(true);
 Lista_Simple Capas_IMG = new Lista_Simple(true);
 Binario Arbol_Capas = new Binario(true);
 Matriz matri = new Matriz(true);
 
 int ID, fila, columna;
 string color, contenido="";
-bool encontradoF, encontradoC;
+bool encontradoF, encontradoC, insertarAVL;
 
 void Graficar();
 void insertar();
 void Turno();
 void splitear_Capas(string s);
 void splitear_Imagenes(string s);
+void splitear_Usuarios(string s);
 string cadena(int numero);
 
 int main() {
@@ -159,8 +161,6 @@ int main() {
 	if (inFile) {
 		while (inFile >> palabra)
 		{
-
-			contenido += palabra + "\n";
 			splitear_Imagenes(palabra);
 		}
 		palabra = "";
@@ -173,6 +173,25 @@ int main() {
 
 	Nodo_c *IMG = Imagenes.buscarNodo(30);
 	Imagenes.crear_IMG(IMG);
+
+	// leer archivo de imagen
+	cout << "Ingrese la ruta del archivo de Usuarios>>";
+	cin >> ruta;
+	inFile.open(ruta);
+	if (inFile) {
+		while (inFile >> palabra)
+		{
+			splitear_Usuarios(palabra);
+		}
+		palabra = "";
+		Imagenes.graf();
+	}
+	else {
+		cout << "No se pudo abrir el archivo!!" << endl;
+	}
+	inFile.close();
+
+	Usuarios.graficar();
 	
 
 	system("pause");
@@ -277,5 +296,47 @@ void splitear_Imagenes(string str) {
 			palabra += x;
 		}
 	}
-	//cout<<"???"<<palabra<<endl;
+}
+
+void splitear_Usuarios(string str) {
+	string palabra = "";
+	string usuario = "";
+	for (auto x : str) {
+		if (x == ':') {
+			usuario = palabra;
+			if (!Usuarios.existe(usuario)) {
+				Usuarios.agregar(usuario);
+				ImagenesUsuario = new Lista_Doble_Circular(true);
+			}
+			else {
+				palabra = "";
+				break;
+			}
+			palabra = "";
+		}
+		else if (x == ',') {
+
+			int imagen = atoi(palabra.c_str());
+			Nodo_c *actual = Imagenes.buscarNodo(imagen);
+			if (actual != NULL) {
+				ImagenesUsuario.insertarNuevo(imagen, actual->primero_lista);
+			}
+			palabra = "";
+		}
+		else if (x == ';') {
+			int imagen = atoi(palabra.c_str());
+			Nodo_c *actual = Imagenes.buscarNodo(imagen);
+			
+			if (actual != NULL) {
+				ImagenesUsuario.insertarNuevo(imagen, actual->primero_lista);
+			}
+
+			Usuarios.update(usuario, ImagenesUsuario.primero);
+			palabra = "";
+		}
+		else
+		{
+			palabra += x;
+		}
+	}
 }
