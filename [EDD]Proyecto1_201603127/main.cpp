@@ -27,175 +27,268 @@ int ID, fila, columna;
 string color, contenido="";
 bool encontradoF, encontradoC, insertarAVL;
 
-void Graficar();
-void insertar();
-void Turno();
+void Cargar_Archivos();
+void Generar_Imagenes();
 void splitear_Capas(string s);
 void splitear_Imagenes(string s);
 void splitear_Usuarios(string s);
+string splitear_Recorridos(string s, int no);
+void Recorrido_Lim(int no_capas, int tipo_recorrido);
+
+bool esNumero(string linea);
 string cadena(int numero);
 
 int main() {
 	 
-	/*mat1.Insertar(1, 1, 3, "#FE2EC8");
-	mat2.Insertar(2, 4, 5, "#27CA9A");
-	mat1.Insertar(1, 5, 5, "#e74c3c");
-	mat2.Insertar(2, 1, 4, "#0624E9");
-	mat1.Insertar(1, 1, 2, "#e74c3c");
-	mat2.Insertar(2, 1, 2, "#FE2EC8");
+	int opcion = 0;
+	while (opcion != 4) {
+		system("cls");
+		cout << "-----------------MENU PRINCIPAL-----------------" << endl;
+		cout << "|   1. CARGAR ARCHIVOS                         |" << endl;
+		cout << "|   2. GENERARCION DE IMAGENES                 |" << endl;
+		cout << "|   3. GRAFICAR                                |" << endl;
+		cout << "|   4. SALIR                                   |" << endl;
+		cout << "------------------------------------------------" << endl;
+		cout << "ingrese la opcion que desee realizar: ";
+		cin >> opcion;
 
-	mat1.buscarCelda(3, 2);
-	mat1.buscarCelda(5, 5);
-	mat2.buscarCelda(5, 4);
+		switch (opcion) {
+		case 1:
+			system("cls");
+			Cargar_Archivos();
+			//system("pause");
+			break;
 
-	mat1.graficar(1, mat1.Cprincipal);
-	mat2.graficar(2,mat2.Cprincipal);
+		case 2:
+			int tur;
+			system("cls");
+			Generar_Imagenes();
+			system("pause");
+			break;
 
-	Sleep(100);
+		case 3:
+			system("cls");
+			cout << "Graficando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			//Graficar();
+			cout << endl;
+			system("pause");
+			break;
 
-	mat1.Insertar(1, 7, 7, "#FE2EC8");
-	mat2.Insertar(2, 7, 7, "#FE2EC8");
+		case 4:
+			cout << "Finalizando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			break;
 
-	mat1.graficar(1, mat1.Cprincipal);
-	mat2.graficar(2, mat2.Cprincipal);
-
-	Nodo_Matriz *temporal = new Nodo_Matriz();
-	temporal = mat1.ObtenerCelda(7, 7);
-	cout << "El metodo devolvio el nodo en: " << temporal->fila << "," << temporal->columna << " con el dato de " << temporal->colorhex << endl;
-	*/
-	/*
-	Usuarios.agregar("i");
-	Usuarios.agregar("d");
-	Usuarios.agregar("s");
-	Usuarios.agregar("r");
-	Usuarios.agregar("j");
-	Usuarios.agregar("c");
-	Usuarios.agregar("a");
-	Usuarios.agregar("h");
-	Usuarios.agregar("k");
-	Usuarios.agregar("f");
-	Usuarios.graficar();
-
-	Sleep(1000);
-	Usuarios.my_delete("i");
-	Usuarios.my_delete("f");
-	Usuarios.my_delete("c");
-	Usuarios.graficar();
-	*/
-/*
-	Imagenes.insertarNuevo(8);
-	Imagenes.insertarNuevo(4);
-	Imagenes.insertarNuevo(9);
-	Imagenes.insertarNuevo(2);
-	Imagenes.graf();
-	*/
-
-	/*Capas_IMG.agregar(4);
-	Capas_IMG.agregar(2);
-	Capas_IMG.agregar(1);
-	Capas_IMG.agregar(7);
-	Capas_IMG.agregar(5);
-
-	
-
-	Capas_IMG.eliminar(5);
-	Capas_IMG.eliminar(4);
-	Capas_IMG.eliminar(1);
-	Capas_IMG.eliminar(4);
-	Capas_IMG.graficar();
-	*/
-	
-	/*Arbol_Capas.add(5);
-	Arbol_Capas.add(3);
-	Arbol_Capas.add(77);
-	Arbol_Capas.add(4);
-	Arbol_Capas.add(11);
-	Arbol_Capas.add(1);
-	Arbol_Capas.add(55);
-	Arbol_Capas.add(55);
-	//Arbol_Capas.graficar();
-
-	Arbol_Capas.graficar();
-
-	Matriz matri = new Matriz(true);
-	Nodo_ABB *nodlist = Arbol_Capas.busNodo(3);
-	for (int a = 0; a < 3; a++) {
-		nodlist = matri.agregarMatriz(3, a+1, a+1,"#FE2EC8" , nodlist);
-		nodlist = matri.agregarMatriz(3, a+1, a+2, "#FE2EC8", nodlist);
-		Arbol_Capas.modificar(3, nodlist);
-	}
-
-	nodlist = Arbol_Capas.busNodo(3);
-	matri.graficar(3, nodlist->principal);
-	*/
-	
-	string ruta,palabra;
-	cout << "Ingrese la ruta del archivo>>";
-	cin >> ruta;
-	contenido = "";
-	ifstream inFile;
-	inFile.open(ruta);
-	if (inFile) {
-		while (inFile >> palabra)
-		{
-			
-			contenido += palabra + "\n";
-			splitear_Capas(palabra);
+		default:
+			cout << "Inserte una opcion valida!!" << endl;
+			system("pause");
+			break;
 		}
-		palabra = "";
-		Nodo_ABB *nodlist = Arbol_Capas.busNodo(2);
-		Matriz matri = new Matriz(true);
-		matri.graficar(nodlist->id, nodlist->principal);
-		cout << nodlist->contenido;
 	}
-	else {
-		cout << "No se pudo abrir el archivo!!" << endl;
-	}
-	inFile.close();
-	Arbol_Capas.graficar();
-	
-	// leer archivo de imagen
-	cout << "Ingrese la ruta del archivo de capas>>";
-	cin >> ruta;
-	inFile.open(ruta);
-	if (inFile) {
-		while (inFile >> palabra)
-		{
-			splitear_Imagenes(palabra);
-		}
-		palabra = "";
-		Imagenes.graf();
-	}
-	else {
-		cout << "No se pudo abrir el archivo!!" << endl;
-	}
-	inFile.close();
 
-	Nodo_c *IMG = Imagenes.buscarNodo(30);
-	Imagenes.crear_IMG(IMG);
-
-	// leer archivo de imagen
-	cout << "Ingrese la ruta del archivo de Usuarios>>";
-	cin >> ruta;
-	inFile.open(ruta);
-	if (inFile) {
-		while (inFile >> palabra)
-		{
-			splitear_Usuarios(palabra);
-		}
-		palabra = "";
-		Imagenes.graf();
-	}
-	else {
-		cout << "No se pudo abrir el archivo!!" << endl;
-	}
-	inFile.close();
-
-	Usuarios.graficar();
-	
-
-	system("pause");
+	//system("pause");
 	return 0;
+}
+
+void Cargar_Archivos() {
+	int opcion = 0;
+	string ruta, palabra;
+	ifstream inFile;
+
+	while (opcion != 4) {
+		system("cls");
+		cout << "1. CARGAR CAPAS" << endl;
+		cout << "2. CARGAR IMAGENES" << endl;
+		cout << "3. CARGAR USUARIOS" << endl;
+		cout << "4. SALIR" << endl;
+		cout << "ingrese la opcion que desee realizar: ";
+		cin >> opcion;
+
+		switch (opcion) {
+		case 1:
+			system("cls");
+			cout << "Ingrese la ruta del archivo de capas>>";
+			cin >> ruta;
+			contenido = "";
+			inFile.open(ruta);
+			if (inFile) {
+				while (inFile >> palabra)
+				{
+
+					contenido += palabra + "\n";
+					splitear_Capas(palabra);
+				}
+				palabra = "";
+				Nodo_ABB *nodlist = Arbol_Capas.busNodo(2);
+				Matriz matri = new Matriz(true);
+				matri.graficar(nodlist->id, nodlist->principal);
+				cout << nodlist->contenido;
+			}
+			else {
+				cout << "No se pudo abrir el archivo!!" << endl;
+			}
+			inFile.close();
+			Arbol_Capas.graficar();
+			Arbol_Capas.graficar_Espejo();
+			Arbol_Capas.graficar();
+			system("pause");
+			break;
+
+		case 2:
+			system("cls");
+			cout << "Ingrese la ruta del archivo de imagenes>>";
+			cin >> ruta;
+			inFile.open(ruta);
+			if (inFile) {
+				while (inFile >> palabra)
+				{
+					splitear_Imagenes(palabra);
+				}
+				palabra = "";
+				Imagenes.graf();
+			}
+			else {
+				cout << "No se pudo abrir el archivo!!" << endl;
+			}
+			inFile.close();
+
+			{Nodo_c *IMG = Imagenes.buscarNodo(30);
+			Imagenes.crear_IMG(IMG);}
+			system("pause");
+			break;
+
+		case 3:
+			system("cls");
+			cout << "Ingrese la ruta del archivo de Usuarios>>";
+			cin >> ruta;
+			inFile.open(ruta);
+			if (inFile) {
+				while (inFile >> palabra)
+				{
+					splitear_Usuarios(palabra);
+				}
+				palabra = "";
+				//Imagenes.graf();
+			}
+			else {
+				cout << "No se pudo abrir el archivo!!" << endl;
+			}
+			inFile.close();
+			Usuarios.graficar();
+			Imagenes.graf();
+			system("pause");
+			break;
+
+		case 4:
+			cout << "Finalizando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			break;
+
+		default:
+			cout << "Inserte una opcion valida!!" << endl;
+			system("pause");
+			break;
+		}
+	}
+}
+
+void Generar_Imagenes() {
+	int opcion = 0, orden, no_capas;
+	string linea, palabra;
+	ifstream inFile;
+	bool repetir = true;
+	bool repetir2 = true;
+
+	while (opcion != 4) {
+		system("cls");
+		cout << "1. POR RECORRIDO LIMITADO" << endl;
+		cout << "2. POR LISTA DE IMAGENES" << endl;
+		cout << "3. POR CAPA" << endl;
+		cout << "4. POR USUARIO" << endl;
+		cout << "5. SALIR" << endl;
+		cout << "ingrese la opcion que desee realizar: ";
+		cin >> opcion;
+
+		switch (opcion) {
+		case 1:
+			do {
+				system("cls");
+				cout << "Ingrese el numero de capas a utilizar>> ";
+				cin >> linea;
+				
+				if (esNumero(linea)) {
+					repetir = false;
+					no_capas = atoi(linea.c_str());
+
+					do {
+						cout << "--------------------Recoridos--------------------" << endl;
+						cout << "1. PRE-ORDER" << endl;
+						cout << "2. IN-ORDER" << endl;
+						cout << "3. POST-ORDER" << endl;
+						cout << "Ingrese el numero del recorido a utilizar>> ";
+						cin >> linea;
+
+						if (esNumero(linea)) {
+							repetir2 = false;
+							orden = atoi(linea.c_str());
+
+							if (no_capas >= Arbol_Capas.no_Nodos) {
+								no_capas = Arbol_Capas.no_Nodos;
+							}
+
+							Recorrido_Lim(no_capas, orden);
+
+						} else {
+							cout << "Debe ingresar solamente numeros positivos" << endl;
+							Sleep(1000);
+						}
+
+					} while (repetir2);
+
+				} else {
+					cout << "Debe ingresar solamente numeros positivos" << endl;
+				}
+
+				system("pause");
+			} while (repetir);
+			break;
+
+		case 2:
+			system("cls");
+			cout << "Ingrese la ruta del archivo de imagenes>>";
+			system("pause");
+			break;
+
+		case 3:
+			system("cls");
+			cout << "Ingrese la ruta del archivo de Usuarios>>";
+			system("pause");
+			break;
+
+		case 4:
+			cout << "Finalizando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			break;
+
+		default:
+			cout << "Inserte una opcion valida!!" << endl;
+			system("pause");
+			break;
+		}
+	}
 }
 
 void splitear_Capas(string str) {
@@ -339,4 +432,106 @@ void splitear_Usuarios(string str) {
 			palabra += x;
 		}
 	}
+}
+
+string splitear_Recorridos(string str, int no_capas) {
+	string palabra = ""; 
+	string strCapas = "";
+	for (auto x : str) {
+		if (no_capas != 0) {
+			if (x == ' ') {
+				if ( no_capas <= 1) {
+					strCapas += palabra;
+				} else {
+					strCapas += palabra + ",";
+				}
+				palabra = "";
+				no_capas--;
+			} else {
+				palabra += x;
+			}
+		} else {
+			break;
+		}
+	}
+	return strCapas;
+}
+
+void Recorrido_Lim(int no_capas, int tipo_recorrido) {
+	string contenido_recorrido = "", id_string = "";
+	Lista_Doble_Circular Copia_Imagenes = Imagenes;
+	Imagenes = new Lista_Doble_Circular(true);
+	int id_temp = 0;
+
+	switch (tipo_recorrido) {
+	case 1:
+		Arbol_Capas.PreOrden(Arbol_Capas.raiz);
+		id_string = cadena(tipo_recorrido) + cadena(no_capas);
+		id_temp = atoi(id_string.c_str());
+		id_string += "{";
+		contenido_recorrido =  splitear_Recorridos(Arbol_Capas.preOrd, no_capas);
+		cout << "Se superpondran las capas: " << contenido_recorrido << endl;
+		Sleep(500);
+
+		break;
+	case 2:
+		Arbol_Capas.InOrden(Arbol_Capas.raiz);
+		id_string = cadena(tipo_recorrido) + cadena(no_capas);
+		id_temp = atoi(id_string.c_str());
+		id_string += "{";
+		contenido_recorrido = splitear_Recorridos(Arbol_Capas.inOrd, no_capas);
+		cout << "Se superpondran las capas: " << contenido_recorrido << endl;
+		Sleep(500);
+		break;
+	case 3:
+		Arbol_Capas.PostOrden(Arbol_Capas.raiz);
+		id_string = cadena(tipo_recorrido) + cadena(no_capas);
+		id_temp = atoi(id_string.c_str());
+		id_string += "{";
+		contenido_recorrido = splitear_Recorridos(Arbol_Capas.posOrd, no_capas);
+		cout << "Se superpondran las capas: " << contenido_recorrido << endl;
+		Sleep(500);
+		break;
+	default:
+		break;
+	}
+	splitear_Imagenes(id_string + contenido_recorrido + "}");
+	Nodo_c *IMG = Imagenes.buscarNodo(id_temp);
+	Imagenes.crear_IMG(IMG);
+	Imagenes = Copia_Imagenes;
+}
+
+bool esNumero(string linea) {
+	bool b = true;
+	int longitud = linea.size();
+
+	if (longitud == 0) {
+		return false;
+	}
+	else if (longitud == 1 && !isdigit(linea[0])) {
+		return false;
+	}
+	else {
+		int i;
+		if (linea[0] == '+') {
+			i = 1;
+		}
+		else {
+			i = 0;
+		}
+
+		while (i<longitud) {
+			if (!isdigit(linea[i])) {
+				return false;
+			}
+			i++;
+		}
+	}
+	return true;
+}
+
+string cadena(int n) {
+	stringstream flujo;
+	flujo << n;
+	return(flujo.str());
 }

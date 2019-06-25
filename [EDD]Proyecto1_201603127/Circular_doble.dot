@@ -2,16 +2,16 @@ digraph G {
 	node [shape=record,width=.9,height=.5];
 	Node1->Node2; 
 	Node1->Node2[dir=back]; 
-	Node1->NodeCapa_2_1; 
+	Node1->NodeCapa_9_1; 
 	Node2->Node4; 
 	Node2->Node4[dir=back]; 
-	Node2->NodeCapa_7_2; 
+	Node2->NodeCapa_10_2; 
 	Node4->Node30; 
 	Node4->Node30[dir=back]; 
-	Node4->NodeCapa_4_4; 
+	Node4->NodeCapa_2_4; 
 	Node30->Node1; 
 	Node30->Node1[dir=back]; 
-	Node30->NodeCapa_9_30; 
+	Node30->NodeCapa_7_30; 
 
  	Node1[label = "imagen_1"] 
 
@@ -21,19 +21,17 @@ digraph G {
 
  	Node30[label = "imagen_30"] 
 // empiezan las relaciones de listas con las imagenes
-	NodeCapa_2_1[shape=box,style=filled,color=chartreuse1  , label = "Capa_2 "] 
-	NodeCapa_7_2->NodeCapa_1_2; 
-	NodeCapa_7_2[shape=box,style=filled,color=chartreuse1  , label = "Capa_7 "] 
-	NodeCapa_1_2->NodeCapa_4_2; 
-	NodeCapa_1_2[shape=box,style=filled,color=chartreuse1  , label = "Capa_1 "] 
-	NodeCapa_4_2[shape=box,style=filled,color=chartreuse1  , label = "Capa_4 "] 
-	NodeCapa_4_4->NodeCapa_2_4; 
-	NodeCapa_4_4[shape=box,style=filled,color=chartreuse1  , label = "Capa_4 "] 
+	NodeCapa_9_1[shape=box,style=filled,color=chartreuse1  , label = "Capa_9 "] 
+	NodeCapa_10_2->NodeCapa_2_2; 
+	NodeCapa_10_2[shape=box,style=filled,color=chartreuse1  , label = "Capa_10 "] 
+	NodeCapa_2_2->NodeCapa_5_2; 
+	NodeCapa_2_2[shape=box,style=filled,color=chartreuse1  , label = "Capa_2 "] 
+	NodeCapa_5_2[shape=box,style=filled,color=chartreuse1  , label = "Capa_5 "] 
 	NodeCapa_2_4[shape=box,style=filled,color=chartreuse1  , label = "Capa_2 "] 
-	NodeCapa_9_30->NodeCapa_3_30; 
-	NodeCapa_9_30[shape=box,style=filled,color=chartreuse1  , label = "Capa_9 "] 
-	NodeCapa_3_30->NodeCapa_5_30; 
-	NodeCapa_3_30[shape=box,style=filled,color=chartreuse1  , label = "Capa_3 "] 
+	NodeCapa_7_30->NodeCapa_5_30; 
+	NodeCapa_7_30[shape=box,style=filled,color=chartreuse1  , label = "Capa_7 "] 
+	NodeCapa_5_30->NodeCapa_2_30; 
 	NodeCapa_5_30[shape=box,style=filled,color=chartreuse1  , label = "Capa_5 "] 
+	NodeCapa_2_30[shape=box,style=filled,color=chartreuse1  , label = "Capa_2 "] 
 { rank = same; Node1,Node1,Node2,Node4,Node30};
 }

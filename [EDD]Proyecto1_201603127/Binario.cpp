@@ -30,8 +30,6 @@ bool Binario::existe(int dato) {
 	return existeB(raiz, dato);
 }
 
-
-
 Nodo_ABB *Binario::insertar(Nodo_ABB *raiz,int dato) {
 
 	if (raiz == NULL) {
@@ -49,6 +47,7 @@ Nodo_ABB *Binario::insertar(Nodo_ABB *raiz,int dato) {
 void Binario::add(int dato) {
 	if (!existe(dato)) {
 		raiz = insertar(raiz, dato);
+		no_Nodos++;
 	}
 	else {
 		cout << "El dato ya existe" << endl;
@@ -106,6 +105,7 @@ Nodo_ABB *Binario::eliminar(Nodo_ABB *raiz, int dato) {
 void Binario::elim(int dato) {
 	if (existe(dato)) {
 		raiz = eliminar(raiz, dato);
+		no_Nodos--;
 	} else {
 		cout << "El dato " << dato << " no existe" << endl;
 	}
@@ -162,6 +162,23 @@ void Binario::modificar(int dato, Nodo_ABB *matriz) {
 	}
 }
 
+//Crear Arbol espejo usando un segundo nodo para graficarlo cuando se pida
+void Binario::Espejo(Nodo_ABB *raiz_E) {
+	if (raiz_E == NULL)
+		return;
+	else
+	{
+		Nodo_ABB *temp;
+
+		Espejo(raiz_E->izquierda);
+		Espejo(raiz_E->derecha);
+
+		temp = raiz_E->izquierda;
+		raiz_E->izquierda = raiz_E->derecha;
+		raiz_E->derecha = temp;
+	}
+}
+
 void Binario::graficar() {
 
 	grafica = "";
@@ -170,7 +187,7 @@ void Binario::graficar() {
 
 	arch.open("ABB.dot");
 	arch << "digraph g{" << endl;
-	arch << "\tnode [shape=record,width=.9,height=.5,style=filled,color=orangered2];\n";
+	arch << "\tnode [shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2];\n";
 
 	grafica = recorrer(raiz);
 
@@ -181,24 +198,74 @@ void Binario::graficar() {
 	system("ABB.png");
 }
 
+//Crea la grafica del arbol espejo
+void Binario::graficar_Espejo() {
+
+	grafica = "";
+	//crea una "copia" de la raiz en el espejo para que no altere la raiz principal
+	raiz_Espejo = raiz;
+	Espejo(raiz_Espejo); //ejecuta el metodo de espejo que cambia las direcciones de los punteros
+
+	ofstream arch;
+
+	arch.open("ABB_Espejo.dot");
+	arch << "digraph g{" << endl;
+	arch << "\tnode [shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2];\n";
+	grafica = recorrer(raiz);
+	arch << grafica;
+	arch << "}" << endl;
+	arch.close();
+	system("dot -Tpng ABB_Espejo.dot -o ABB_Espejo.png");
+	system("ABB_Espejo.png");
+	Espejo(raiz_Espejo);
+}
+
 string Binario::recorrer(Nodo_ABB *inicio) {
 	if (inicio != NULL) {
+
 		if (inicio->izquierda != NULL) {
-			grafica += "\tNode" + cadena(inicio->id) + "->" + "Node" + cadena(inicio->izquierda->id) + "; \n";
+			grafica += "\tNode" + cadena(inicio->id) + ":C0->" + "Node" + cadena(inicio->izquierda->id) + "; \n";
 		}
 		if (inicio->derecha != NULL) {
-			grafica += "\tNode" + cadena(inicio->id) + "->" + "Node" + cadena(inicio->derecha->id) + "; \n";
+			grafica += "\tNode" + cadena(inicio->id) + ":C1->" + "Node" + cadena(inicio->derecha->id) + "; \n";
 		}
-		/*if (inicio.inicio != null) {
-		Lista_Simple lista = new Lista_Simple();
-		grafica += "\tNode" + inicio.hashCode() + "->" + "Node" + inicio.inicio.hashCode() + "[style=dotted]; \n";
-		grafica += lista.recorre(inicio.inicio);
-		}*/
+
 		recorrer(inicio->izquierda);
 		recorrer(inicio->derecha);
-		grafica += "\n \tNode" + cadena(inicio->id) + "[label = \"Capa_" + cadena(inicio->id) + "\"] \n";
+		grafica += "\n \tNode" + cadena(inicio->id) + "[label = \"<C0>|Capa_" + cadena(inicio->id) + "|<C1>\"] \n";
 	}
 	return grafica;
+}
+
+void Binario::PreOrden(Nodo_ABB *raiz) {
+	if (raiz!= NULL) {
+		//cout << raiz->id << " ";
+		preOrd += cadena(raiz->id) + " ";
+
+		PreOrden(raiz->izquierda);
+		PreOrden(raiz->derecha);
+	}
+}
+
+void Binario::InOrden(Nodo_ABB *raiz) {
+	if (raiz != NULL) {
+		InOrden(raiz->izquierda);
+		
+		//cout << raiz->id << " ";
+		inOrd += cadena(raiz->id) + " ";
+
+		InOrden(raiz->derecha);
+	}
+}
+
+void Binario::PostOrden(Nodo_ABB *raiz) {
+	if (raiz != NULL) {
+		PostOrden(raiz->izquierda);
+		PostOrden(raiz->derecha);
+
+		//cout << raiz->id << " ";
+		posOrd += cadena(raiz->id) + " ";
+	}
 }
 
 string Binario::cadena(int n) {

@@ -213,11 +213,11 @@ Nodo_Arbol *AVL::buscarNodo(string nick) {
 	Nodo_Arbol *temp = buscarNod(raiz, data);
 
 	if (temp != NULL) {
-		cout<<"Se ha encontrado " << temp->nick<<endl;
+		cout<<"Se ha encontrado: " << temp->nick<<endl;
 		return temp;
 	}
 	else {
-		cout<<"No se ha encontrado " << nick;
+		cout<<"No se ha encontrado: " << nick<<endl;
 		return NULL;
 	}
 
@@ -230,11 +230,11 @@ bool AVL::existe(string usuario) {
 	Nodo_Arbol *temp = buscarNod(raiz, data);
 
 	if (temp != NULL) {
-		cout << "Se ha encontrado " << temp->nick << endl;
+		cout << "Se ha encontrado: " << temp->nick << endl;
 		return true;
 	}
 	else {
-		cout << "No se ha encontrado " << usuario;
+		cout << "No se ha encontrado: " << usuario<<endl;
 		return false;
 	}
 }

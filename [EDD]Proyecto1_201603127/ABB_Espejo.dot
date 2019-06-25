@@ -1,0 +1,23 @@
+digraph g{
+	node [shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2];
+	Node7:C0->Node10; 
+	Node7:C1->Node5; 
+	Node10:C0->Node30; 
+	Node10:C1->Node9; 
+
+ 	Node30[label = "<C0>|Capa_30|<C1>"] 
+
+ 	Node9[label = "<C0>|Capa_9|<C1>"] 
+
+ 	Node10[label = "<C0>|Capa_10|<C1>"] 
+	Node5:C0->Node6; 
+	Node5:C1->Node2; 
+
+ 	Node6[label = "<C0>|Capa_6|<C1>"] 
+
+ 	Node2[label = "<C0>|Capa_2|<C1>"] 
+
+ 	Node5[label = "<C0>|Capa_5|<C1>"] 
+
+ 	Node7[label = "<C0>|Capa_7|<C1>"] 
+}

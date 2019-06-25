@@ -1,23 +1,23 @@
 digraph g{
-	node [shape=record,width=.9,height=.5,style=filled,color=orangered2];
-	Node4->Node1; 
-	Node4->Node7; 
-	Node1->Node2; 
-	Node2->Node3; 
+	node [shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2];
+	Node7:C0->Node5; 
+	Node7:C1->Node10; 
+	Node5:C0->Node2; 
+	Node5:C1->Node6; 
 
- 	Node3[label = "Capa_3"] 
+ 	Node2[label = "<C0>|Capa_2|<C1>"] 
 
- 	Node2[label = "Capa_2"] 
+ 	Node6[label = "<C0>|Capa_6|<C1>"] 
 
- 	Node1[label = "Capa_1"] 
-	Node7->Node5; 
-	Node7->Node9; 
+ 	Node5[label = "<C0>|Capa_5|<C1>"] 
+	Node10:C0->Node9; 
+	Node10:C1->Node30; 
 
- 	Node5[label = "Capa_5"] 
+ 	Node9[label = "<C0>|Capa_9|<C1>"] 
 
- 	Node9[label = "Capa_9"] 
+ 	Node30[label = "<C0>|Capa_30|<C1>"] 
 
- 	Node7[label = "Capa_7"] 
+ 	Node10[label = "<C0>|Capa_10|<C1>"] 
 
- 	Node4[label = "Capa_4"] 
+ 	Node7[label = "<C0>|Capa_7|<C1>"] 
 }
