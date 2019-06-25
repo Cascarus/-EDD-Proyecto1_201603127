@@ -159,8 +159,8 @@ void Cargar_Archivos() {
 			}
 			inFile.close();
 
-			{Nodo_c *IMG = Imagenes.buscarNodo(30);
-			Imagenes.crear_IMG(IMG);}
+			//{Nodo_c *IMG = Imagenes.buscarNodo(30);
+			//Imagenes.crear_IMG(IMG);}
 			system("pause");
 			break;
 
@@ -208,8 +208,9 @@ void Generar_Imagenes() {
 	ifstream inFile;
 	bool repetir = true;
 	bool repetir2 = true;
+	string imagenes_usurio = "";
 
-	while (opcion != 4) {
+	while (opcion != 5) {
 		system("cls");
 		cout << "1. POR RECORRIDO LIMITADO" << endl;
 		cout << "2. POR LISTA DE IMAGENES" << endl;
@@ -257,25 +258,105 @@ void Generar_Imagenes() {
 
 				} else {
 					cout << "Debe ingresar solamente numeros positivos" << endl;
+					Sleep(1000);
 				}
-
-				system("pause");
 			} while (repetir);
+			system("pause");
 			break;
 
 		case 2:
-			system("cls");
-			cout << "Ingrese la ruta del archivo de imagenes>>";
+			do {
+				system("cls");
+				cout << "Ingrese el id de la imagen que desea graficar>> ";
+				cin >> linea;
+
+				if (esNumero(linea)) {
+					repetir = false;
+					no_capas = atoi(linea.c_str());
+					Nodo_c *IMG = Imagenes.buscarNodo(no_capas);
+					if (IMG != NULL) {
+						Imagenes.crear_IMG(IMG);
+					}
+					else {
+						cout << "ERROR: la imagen " << no_capas << " no existe";
+						Sleep(1000);
+						repetir = true;
+					}
+				}
+				else {
+					cout << "Debe ingresar solamente numeros positivos" << endl;
+					Sleep(1000);
+				}
+			} while (repetir);
 			system("pause");
 			break;
 
 		case 3:
-			system("cls");
-			cout << "Ingrese la ruta del archivo de Usuarios>>";
+			do {
+				system("cls");
+				cout << "Ingrese el id de la imagen que desea graficar>> ";
+				cin >> linea;
+
+				if (esNumero(linea)) {
+					repetir = false;
+					no_capas = atoi(linea.c_str());
+					Nodo_ABB *nodlist = Arbol_Capas.busNodo(no_capas);
+					if (nodlist != NULL) {
+						Matriz matri = new Matriz(true);
+						matri.graficar2(nodlist->id, nodlist->principal);
+					}
+					else {
+						cout << "ERROR: la capa " << no_capas << " no existe";
+						Sleep(1000);
+						repetir = true;
+					}
+				}
+				else {
+					cout << "Debe ingresar solamente numeros positivos" << endl;
+					Sleep(1000);
+				}
+			} while (repetir);
 			system("pause");
 			break;
 
 		case 4:
+			int no_imagen;
+			Nodo_Arbol *nodAVL;
+			system("cls");
+			cout << "Ingrese el id del usuarios>> ";
+			cin >> linea;
+			nodAVL = Usuarios.buscarNodo(linea);
+			if (nodAVL != NULL) {
+				Nodo_c *aux_lista = nodAVL->primero;
+				Lista_Doble_Circular lista_d_aux = new Lista_Doble_Circular(true);
+				lista_d_aux.primero = nodAVL->primero;
+				
+				do {
+					imagenes_usurio += cadena(aux_lista->id) + " ";
+					aux_lista = aux_lista->Siguiente;
+				} while (aux_lista != nodAVL->primero);
+				
+				cout << "Las imagenes que contiene el usuario " << linea << "son: " << imagenes_usurio<<endl;
+				cout << "Seleccione la imagen que desea graficar: " ;
+				cin >> linea;
+
+				if (esNumero(linea)) {
+					no_capas = atoi(linea.c_str());
+					Nodo_c *IMG = lista_d_aux.buscarNodo(no_capas);
+					if (IMG != NULL) {
+						lista_d_aux.crear_IMG(IMG);
+					}
+				} else {
+					cout << "Debe ingresar solamente numeros positivos" << endl;
+					Sleep(1000);
+				}
+
+			}
+			imagenes_usurio = "";
+			system("pause");
+			break;
+
+		case 5:
 			cout << "Finalizando.";
 			for (int a = 0; a < 10; a++) {
 				Sleep(100);
@@ -413,6 +494,12 @@ void splitear_Usuarios(string str) {
 			Nodo_c *actual = Imagenes.buscarNodo(imagen);
 			if (actual != NULL) {
 				ImagenesUsuario.insertarNuevo(imagen, actual->primero_lista);
+				Nodo_c *nodImg = ImagenesUsuario.buscarNodo(imagen);
+				if (nodImg != NULL)
+				{
+					nodImg->colMax = actual->colMax;
+					nodImg->filMax = actual->filMax;
+				}
 			}
 			palabra = "";
 		}
@@ -422,6 +509,12 @@ void splitear_Usuarios(string str) {
 			
 			if (actual != NULL) {
 				ImagenesUsuario.insertarNuevo(imagen, actual->primero_lista);
+				Nodo_c *nodImg = ImagenesUsuario.buscarNodo(imagen);
+				if (nodImg != NULL)
+				{
+					nodImg->colMax = actual->colMax;
+					nodImg->filMax = actual->filMax;
+				}
 			}
 
 			Usuarios.update(usuario, ImagenesUsuario.primero);

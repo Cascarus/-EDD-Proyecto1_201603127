@@ -61,8 +61,8 @@ public:
 	Nodo_Arbol *mini(Nodo_Arbol *nodo);
 	Nodo_Arbol *eliminar(Nodo_Arbol *raiz, string usuario);
 	void my_delete(string usuario);
-	void AVL::update(string nombre, Nodo_c *&actual);
-	void actualizar(Nodo_Arbol *&current, string nick, Nodo_c *&actual);
+	void AVL::update(string nombre, Nodo_c *actual);
+	void actualizar(Nodo_Arbol *current, string nick, Nodo_c *actual);
 	Nodo_Arbol *buscarNodo(string usuario);
 	Nodo_Arbol *buscarNod(Nodo_Arbol *raiz, string usuario);
 	void graficar();

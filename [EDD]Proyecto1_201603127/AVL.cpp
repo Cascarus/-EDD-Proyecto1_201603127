@@ -190,11 +190,11 @@ void AVL::my_delete(string nombre) {
 	raiz = eliminar(raiz, nombre);
 }
 
-void AVL::update(string nombre, Nodo_c *&actual) {
+void AVL::update(string nombre, Nodo_c *actual) {
 	actualizar(raiz, nombre, actual);
 }
 
-void AVL::actualizar(Nodo_Arbol *&current, string nick, Nodo_c *&actual) {
+void AVL::actualizar(Nodo_Arbol *current, string nick, Nodo_c *actual) {
 	if (current != NULL) {
 		if (current->nick == nick) {
 			current->primero = actual;
