@@ -5,7 +5,7 @@
 #include <sstream>
 #include <algorithm>
 #include <string> 
-#include "Nodo_Matriz.h"
+#include "Matriz.h"
 #include "Nodo_ABB.h"
 
 class Binario
@@ -42,6 +42,8 @@ public:
 	void graficar();
 	void graficar_Espejo();
 	string recorrer(Nodo_ABB *raiz);
+	void crear_IMG(Nodo_ABB *inicio);
+	void splitear_Capas(string str, Matriz imagen_completa, int id);
 	void PreOrden(Nodo_ABB *raiz);
 	void InOrden(Nodo_ABB *raiz);
 	void PostOrden(Nodo_ABB *raiz);

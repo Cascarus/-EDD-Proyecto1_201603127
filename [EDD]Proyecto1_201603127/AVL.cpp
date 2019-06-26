@@ -122,11 +122,13 @@ Nodo_Arbol *AVL::eliminar(Nodo_Arbol *Raiz, string nombre) {
 	if (Raiz == NULL) {
 		return Raiz;
 	}
+	string data = Raiz->nick;
+	std::transform(data.begin(), data.end(), data.begin(), ::tolower);
 
-	if (nombre.compare(Raiz->nick) < 0) {
+	if (nombre.compare(data) < 0) {
 		Raiz->izquierda = eliminar(Raiz->izquierda, nombre);
 	}
-	else if (nombre.compare(Raiz->nick) > 0) {
+	else if (nombre.compare(data) > 0) {
 		Raiz->derecha = eliminar(Raiz->derecha, nombre);
 	}
 	else {
@@ -135,7 +137,6 @@ Nodo_Arbol *AVL::eliminar(Nodo_Arbol *Raiz, string nombre) {
 			Nodo_Arbol *temp = Raiz->izquierda ?
 							   Raiz->izquierda :
 							   Raiz->derecha;
-
 
 			if (temp == NULL) {
 				temp = Raiz;
@@ -149,7 +150,9 @@ Nodo_Arbol *AVL::eliminar(Nodo_Arbol *Raiz, string nombre) {
 		else {
 			Nodo_Arbol *temp = mini(Raiz->izquierda);
 			Raiz->nick = temp->nick;
-			Raiz->izquierda = eliminar(Raiz->izquierda, temp->nick);
+			data = temp->nick;
+			std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+			Raiz->izquierda = eliminar(Raiz->izquierda, data);
 		}
 	}
 
@@ -187,10 +190,13 @@ Nodo_Arbol *AVL::eliminar(Nodo_Arbol *Raiz, string nombre) {
 }
 
 void AVL::my_delete(string nombre) {
-	raiz = eliminar(raiz, nombre);
+	string data = nombre;
+	std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+	raiz = eliminar(raiz, data);
 }
 
 void AVL::update(string nombre, Nodo_c *actual) {
+
 	actualizar(raiz, nombre, actual);
 }
 
@@ -280,19 +286,19 @@ void AVL::graficar() {
 void AVL::recorrer(Nodo_Arbol *inicio) {
 	if (inicio != NULL) {
 		if (inicio->izquierda != NULL) {
-			grafica += "\tNode" + cadena(inicio->hash) + "->" + "Node" + cadena(inicio->izquierda->hash) + "; \n";
+			grafica += "\tNode" + cadena(inicio->hash) + ":C0->" + "Node" + cadena(inicio->izquierda->hash) + "; \n";
 		}
 		if (inicio->derecha != NULL) {
-			grafica += "\tNode" + cadena(inicio->hash) + "->" + "Node" + cadena(inicio->derecha->hash) + "; \n";
+			grafica += "\tNode" + cadena(inicio->hash) + ":C1->" + "Node" + cadena(inicio->derecha->hash) + "; \n";
 		}
 		if (inicio->primero != NULL) {
 			Lista_Doble_Circular lista = new Lista_Doble_Circular(true);
-			grafica += "\tNode" + cadena(inicio->hash) + "->" + "Node" + cadena(inicio->primero->id) + "[style=dotted]; \n";
-			grafica += lista.recorrer2(inicio->primero);
+			grafica += "\tNode" + cadena(inicio->hash) + "->" + "Node_" + inicio->nick + "_" + cadena(inicio->primero->id) + "[style=dotted]; \n";
+			grafica += lista.recorrer2(inicio->primero, inicio->nick);
 		}
 		recorrer(inicio->izquierda);
 		recorrer(inicio->derecha);
-		grafica += "\n \tNode" + cadena(inicio->hash) + "[style=filled,color=orangered2,label = \"Usuario: " + inicio->nick + "\"] \n";
+		grafica += "\n \tNode" + cadena(inicio->hash) + "[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = \"<C0>|Usuario: " + inicio->nick + "|<C1>\"] \n";
 	}
 }
 

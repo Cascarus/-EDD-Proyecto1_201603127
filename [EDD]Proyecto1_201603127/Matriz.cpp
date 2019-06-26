@@ -375,7 +375,7 @@ void Matriz::graficar2(int id, Nodo_Matriz *principal) {
 	ofstream archivo;
 	archivo.open("Imagen_" + cadena(id) + ".dot");
 	archivo << "digraph G {" << endl;
-	archivo << "\tnode [shape=none] \nMat1 [label=<\n <table border=\"0\" cellborder=\"0\" cellspacing = \"2\">" << endl;
+	archivo << "\tnode [shape=none] \nMat1 [label=<\n <table border=\"0\" cellborder=\"0\" cellspacing = \"0\">" << endl;
 	archivo << cuerpo;
 	archivo << "</table>>]; \n }" << endl;
 	archivo.close();

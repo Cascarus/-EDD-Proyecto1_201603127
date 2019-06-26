@@ -222,7 +222,7 @@ void Lista_Doble_Circular::recorrer(Nodo_c *primero) {
 
 }
 
-string Lista_Doble_Circular::recorrer2(Nodo_c *&primero) {
+string Lista_Doble_Circular::recorrer2(Nodo_c *&primero, string nick) {
 	Nodo_c *current = primero;
 	relaciones = "";
 	labels = "";
@@ -231,9 +231,9 @@ string Lista_Doble_Circular::recorrer2(Nodo_c *&primero) {
 	if (current != NULL) {
 		do {
 			if (current->Siguiente != primero) {
-				relaciones += "\tNode" + cadena(current->id) + "->" + "Node" + cadena(current->Siguiente->id) + "; \n";
+				relaciones += "\tNode_" + nick + "_" + cadena(current->id) + "->" + "Node_" + nick + "_" + cadena(current->Siguiente->id) + "; \n";
 			}
-			labels += "\n \tNode" + cadena(current->id) + "[shape=record,width=.9,height=.5,label = \"imagen_" + cadena(current->id) + "\"] \n";
+			labels += "\n \tNode_" + nick + "_" + cadena(current->id) + "[shape=record,width=.9,height=.5,label = \"imagen_" + cadena(current->id) + "\"] \n";
 			current = current->Siguiente;
 		} while (current != primero);
 	}
@@ -279,12 +279,12 @@ void Lista_Doble_Circular::splitear_Capas(string str, Matriz imagen_completa, in
 		} else if (x == ',') {
 
 			if (encontradoF == false) {
-				cout << "la coordenada en fila es: " << palabra << endl;
+				//cout << "la coordenada en fila es: " << palabra << endl;
 				fila = atoi(palabra.c_str());
 				encontradoF = true;
 			}
 			else if (encontradoC == false) {
-				cout << "la coordenada en columna es: " << palabra << endl;
+				//cout << "la coordenada en columna es: " << palabra << endl;
 				columna = atoi(palabra.c_str());
 				encontradoC = true;
 			}

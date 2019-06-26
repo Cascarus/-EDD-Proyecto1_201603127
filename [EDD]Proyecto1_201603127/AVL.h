@@ -31,6 +31,7 @@ public:
 		derecha =	NULL;
 		izquierda = NULL;
 		primero = NULL;
+		ultimo = NULL;
 	}
 
 	int id, altura;
@@ -40,6 +41,7 @@ public:
 	Nodo_Arbol *derecha;
 	Nodo_Arbol *izquierda;
 	Nodo_c *primero;
+	Nodo_c *ultimo;
 };
 
 class AVL

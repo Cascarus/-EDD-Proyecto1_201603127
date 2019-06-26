@@ -237,6 +237,69 @@ string Binario::recorrer(Nodo_ABB *inicio) {
 	return grafica;
 }
 
+void Binario::crear_IMG(Nodo_ABB *inicio) {
+	Matriz imagen_completa = new Matriz(true);
+	string contenido, linea;
+
+	for (int fil = 0; fil <= inicio->filMax; fil++) {
+		for (int col = 0; col <= inicio->colMax; col++) {
+			imagen_completa.Insertar(inicio->id, fil + 1, col + 1, "#FFFFFF");
+		}
+	}
+
+	contenido = inicio->contenido;
+	splitear_Capas(contenido, imagen_completa, inicio->id);
+	imagen_completa.graficar2(inicio->id, imagen_completa.Cprincipal);
+}
+
+void Binario::splitear_Capas(string str, Matriz imagen_completa, int id) {
+	string palabra = "";
+	bool encontradoF, encontradoC;
+	int fila, columna;
+	string color;
+
+	for (auto x : str) {
+		if (x == '{') {
+			encontradoC = false;
+			encontradoF = false;
+			palabra = "";
+		}
+		else if (x == ',') {
+
+			if (encontradoF == false) {
+				//cout << "la coordenada en fila es: " << palabra << endl;
+				fila = atoi(palabra.c_str());
+				encontradoF = true;
+			}
+			else if (encontradoC == false) {
+				//cout << "la coordenada en columna es: " << palabra << endl;
+				columna = atoi(palabra.c_str());
+				encontradoC = true;
+			}
+			palabra = "";
+		}
+		else if (x == ';') {
+			color = palabra;
+			imagen_completa.Insertar(id, fila, columna, color);
+			encontradoC = false;
+			encontradoF = false;
+			palabra = "";
+		}
+		else if (x == '}') {
+			fila = 0;
+			columna = 0;
+			encontradoC = false;
+			encontradoF = false;
+		}
+		else if (x == '\n') {
+			palabra = "";
+		}
+		else {
+			palabra += x;
+		}
+	}
+}
+
 void Binario::PreOrden(Nodo_ABB *raiz) {
 	if (raiz!= NULL) {
 		//cout << raiz->id << " ";

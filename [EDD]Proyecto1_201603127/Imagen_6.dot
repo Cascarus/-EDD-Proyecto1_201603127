@@ -1,0 +1,24 @@
+digraph G {
+	node [shape=none] 
+Mat1 [label=<
+ <table border="0" cellborder="0" cellspacing = "2">
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr><td BGCOLOR = "#4C3800" height="40" width="40"></td><td BGCOLOR = "#4C3800" height="40" width="40"></td><td BGCOLOR = "#4C3800" height="40" width="40"></td></tr>
+<tr><td BGCOLOR = "#4C3800" height="40" width="40"></td><td BGCOLOR = "#4C3800" height="40" width="40"></td><td BGCOLOR = "#4C3800" height="40" width="40"></td></tr>
+<tr><td BGCOLOR = "#4C3800" height="40" width="40"></td><td BGCOLOR = "#4C3800" height="40" width="40"></td><td BGCOLOR = "#4C3800" height="40" width="40"></td></tr>
+</table>>]; 
+ }

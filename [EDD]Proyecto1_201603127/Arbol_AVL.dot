@@ -1,46 +1,40 @@
 digraph g{
-	Node4202401->Node5240443; 
-	Node4202401->Node6331570; 
-	Node5240443->Node5020747; 
-	Node5240443->Node1742120; 
-	Node5240443->Node1[style=dotted]; 
-	Node1->Node2; 
+	Node845275:C0->Node7547661; 
+	Node845275:C1->Node8601332; 
+	Node845275->Node_userB_2[style=dotted]; 
 
- 	Node1[shape=record,width=.9,height=.5,label = "imagen_1"] 
+ 	Node_userB_2[shape=record,width=.9,height=.5,label = "imagen_2"] 
+	Node7547661:C0->Node4386362; 
+	Node7547661:C1->Node6865180; 
+	Node4386362:C0->Node4865574; 
 
- 	Node2[shape=record,width=.9,height=.5,label = "imagen_2"] 
-	Node5020747->Node4341170; 
-	Node5020747->Node7782551; 
-	Node4341170->Node30[style=dotted]; 
+ 	Node4865574[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = "<C0>|Usuario: Cascarus|<C1>"] 
 
- 	Node30[shape=record,width=.9,height=.5,label = "imagen_30"] 
+ 	Node4386362[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = "<C0>|Usuario: auron|<C1>"] 
+	Node6865180->Node_userA_3[style=dotted]; 
+	Node_userA_3->Node_userA_4; 
 
- 	Node4341170[style=filled,color=orangered2,label = "Usuario: ALV"] 
+ 	Node_userA_3[shape=record,width=.9,height=.5,label = "imagen_3"] 
 
- 	Node7782551[style=filled,color=orangered2,label = "Usuario: ECYS"] 
+ 	Node_userA_4[shape=record,width=.9,height=.5,label = "imagen_4"] 
 
- 	Node5020747[style=filled,color=orangered2,label = "Usuario: Batman"] 
+ 	Node6865180[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = "<C0>|Usuario: userA|<C1>"] 
 
- 	Node1742120[style=filled,color=orangered2,label = "Usuario: Kapi"] 
+ 	Node7547661[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = "<C0>|Usuario: auron_play|<C1>"] 
+	Node8601332:C0->Node2538854; 
+	Node8601332:C1->Node3648483; 
+	Node8601332->Node_userM_6[style=dotted]; 
+	Node_userM_6->Node_userM_7; 
 
- 	Node5240443[style=filled,color=orangered2,label = "Usuario: EDD"] 
-	Node6331570->Node8207380; 
-	Node6331570->Node2871522; 
-	Node6331570->Node4[style=dotted]; 
+ 	Node_userM_6[shape=record,width=.9,height=.5,label = "imagen_6"] 
 
- 	Node4[shape=record,width=.9,height=.5,label = "imagen_4"] 
-	Node8207380->Node1208423; 
+ 	Node_userM_7[shape=record,width=.9,height=.5,label = "imagen_7"] 
 
- 	Node1208423[style=filled,color=orangered2,label = "Usuario: super"] 
+ 	Node2538854[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = "<C0>|Usuario: userC|<C1>"] 
 
- 	Node8207380[style=filled,color=orangered2,label = "Usuario: equiD"] 
-	Node2871522->Node6074403; 
+ 	Node3648483[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = "<C0>|Usuario: userZ|<C1>"] 
 
- 	Node6074403[style=filled,color=orangered2,label = "Usuario: userZ"] 
+ 	Node8601332[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = "<C0>|Usuario: userM|<C1>"] 
 
- 	Node2871522[style=filled,color=orangered2,label = "Usuario: userY"] 
-
- 	Node6331570[style=filled,color=orangered2,label = "Usuario: userA"] 
-
- 	Node4202401[style=filled,color=orangered2,label = "Usuario: MarioB"] 
+ 	Node845275[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = "<C0>|Usuario: userB|<C1>"] 
 }

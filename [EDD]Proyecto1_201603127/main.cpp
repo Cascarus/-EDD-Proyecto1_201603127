@@ -29,6 +29,8 @@ bool encontradoF, encontradoC, insertarAVL;
 
 void Cargar_Archivos();
 void Generar_Imagenes();
+void mUsuarios();
+void mImagenes();
 void splitear_Capas(string s);
 void splitear_Imagenes(string s);
 void splitear_Usuarios(string s);
@@ -41,13 +43,14 @@ string cadena(int numero);
 int main() {
 	 
 	int opcion = 0;
-	while (opcion != 4) {
+	while (opcion != 5) {
 		system("cls");
 		cout << "-----------------MENU PRINCIPAL-----------------" << endl;
 		cout << "|   1. CARGAR ARCHIVOS                         |" << endl;
 		cout << "|   2. GENERARCION DE IMAGENES                 |" << endl;
-		cout << "|   3. GRAFICAR                                |" << endl;
-		cout << "|   4. SALIR                                   |" << endl;
+		cout << "|   3. USUARIOS                                |" << endl;
+		cout << "|   4. IMAGENES                                |" << endl;
+		cout << "|   5. SALIR                                   |" << endl;
 		cout << "------------------------------------------------" << endl;
 		cout << "ingrese la opcion que desee realizar: ";
 		cin >> opcion;
@@ -63,22 +66,14 @@ int main() {
 			int tur;
 			system("cls");
 			Generar_Imagenes();
-			system("pause");
 			break;
 
 		case 3:
 			system("cls");
-			cout << "Graficando.";
-			for (int a = 0; a < 10; a++) {
-				Sleep(100);
-				cout << ".";
-			}
-			//Graficar();
-			cout << endl;
-			system("pause");
+			mUsuarios();
 			break;
 
-		case 4:
+		case 5:
 			cout << "Finalizando.";
 			for (int a = 0; a < 10; a++) {
 				Sleep(100);
@@ -302,8 +297,7 @@ void Generar_Imagenes() {
 					no_capas = atoi(linea.c_str());
 					Nodo_ABB *nodlist = Arbol_Capas.busNodo(no_capas);
 					if (nodlist != NULL) {
-						Matriz matri = new Matriz(true);
-						matri.graficar2(nodlist->id, nodlist->principal);
+						Arbol_Capas.crear_IMG(nodlist);
 					}
 					else {
 						cout << "ERROR: la capa " << no_capas << " no existe";
@@ -327,30 +321,34 @@ void Generar_Imagenes() {
 			cin >> linea;
 			nodAVL = Usuarios.buscarNodo(linea);
 			if (nodAVL != NULL) {
-				Nodo_c *aux_lista = nodAVL->primero;
-				Lista_Doble_Circular lista_d_aux = new Lista_Doble_Circular(true);
-				lista_d_aux.primero = nodAVL->primero;
-				
-				do {
-					imagenes_usurio += cadena(aux_lista->id) + " ";
-					aux_lista = aux_lista->Siguiente;
-				} while (aux_lista != nodAVL->primero);
-				
-				cout << "Las imagenes que contiene el usuario " << linea << "son: " << imagenes_usurio<<endl;
-				cout << "Seleccione la imagen que desea graficar: " ;
-				cin >> linea;
+				if (nodAVL->primero != NULL) {
+					Nodo_c *aux_lista = nodAVL->primero;
+					Lista_Doble_Circular lista_d_aux = new Lista_Doble_Circular(true);
+					lista_d_aux.primero = nodAVL->primero;
 
-				if (esNumero(linea)) {
-					no_capas = atoi(linea.c_str());
-					Nodo_c *IMG = lista_d_aux.buscarNodo(no_capas);
-					if (IMG != NULL) {
-						lista_d_aux.crear_IMG(IMG);
+					do {
+						imagenes_usurio += cadena(aux_lista->id) + " ";
+						aux_lista = aux_lista->Siguiente;
+					} while (aux_lista != nodAVL->primero);
+
+					cout << "Las imagenes que contiene el usuario " << linea << "son: " << imagenes_usurio << endl;
+					cout << "Seleccione la imagen que desea graficar: ";
+					cin >> linea;
+
+					if (esNumero(linea)) {
+						no_capas = atoi(linea.c_str());
+						Nodo_c *IMG = lista_d_aux.buscarNodo(no_capas);
+						if (IMG != NULL) {
+							lista_d_aux.crear_IMG(IMG);
+						}
+					} else {
+						cout << "Debe ingresar solamente numeros positivos" << endl;
+						Sleep(1000);
 					}
 				} else {
-					cout << "Debe ingresar solamente numeros positivos" << endl;
+					cout << "El usuario no posee ninguna imagen" << endl;
 					Sleep(1000);
 				}
-
 			}
 			imagenes_usurio = "";
 			system("pause");
@@ -358,6 +356,137 @@ void Generar_Imagenes() {
 
 		case 5:
 			cout << "Finalizando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			break;
+
+		default:
+			cout << "Inserte una opcion valida!!" << endl;
+			system("pause");
+			break;
+		}
+	}
+}
+
+void mUsuarios() {
+	int opcion = 0;
+	string palabra;
+
+	while (opcion != 4) {
+		system("cls");
+		cout << "------------------MENU USURIOS------------------" << endl;
+		cout << "|   1. AGREGAR USUARIO                         |" << endl;
+		cout << "|   2. ELIMINAR USUARIO                        |" << endl;
+		cout << "|   3. MODIFICAR USUARIO                       |" << endl;
+		cout << "|   4. SALIR                                   |" << endl;
+		cout << "------------------------------------------------" << endl;
+		cout << "ingrese la opcion que desee realizar: ";
+		cin >> opcion;
+
+		switch (opcion) {
+		case 1:
+			system("cls");
+			cout << "Ingrese el id del nuevo usuario>>";
+			cin >> palabra;
+			if (!Usuarios.existe(palabra)) {
+				Usuarios.agregar(palabra);
+				cout << "El usuario " << palabra << "fue agregado exitosamente!" << endl;
+			} else {
+				cout << "El usuario " << palabra << " ya existe, elija otro ID" << endl;
+			}
+			system("pause");
+			break;
+
+		case 2:
+			system("cls");
+			cout << "Ingrese el id del usuario que desea eliminar>>";
+			cin >> palabra;
+			if (Usuarios.existe(palabra)) {
+				Usuarios.my_delete(palabra);
+				cout << "El usuario " << palabra << "fue agregado exitosamente!" << endl;
+			}
+			else {
+				cout << "El usuario " << palabra << " ya existe, elija otro ID" << endl;
+			}
+			system("pause");
+			break;
+
+		case 3:
+			system("cls");
+			Usuarios.graficar();
+			system("pause");
+			break;
+
+		case 4:
+			cout << "Regresando al menu principal.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			break;
+
+		default:
+			cout << "Inserte una opcion valida!!" << endl;
+			system("pause");
+			break;
+		}
+	}
+}
+
+void mImagenes() {
+	int opcion = 0;
+	string palabra;
+
+	while (opcion != 4) {
+		system("cls");
+		cout << "-----------------MENU IMAGENES-----------------" << endl;
+		cout << "|   1. AGREGAR USUARIO                        |" << endl;
+		cout << "|   2. ELIMINAR USUARIO                       |" << endl;
+		cout << "|   3. MODIFICAR USUARIO                      |" << endl;
+		cout << "|   4. SALIR                                  |" << endl;
+		cout << "-----------------------------------------------" << endl;
+		cout << "ingrese la opcion que desee realizar: ";
+		cin >> opcion;
+
+		switch (opcion) {
+		case 1:
+			system("cls");
+			cout << "Ingrese el id del nuevo usuario>>";
+			cin >> palabra;
+			if (!Usuarios.existe(palabra)) {
+				Usuarios.agregar(palabra);
+				cout << "El usuario " << palabra << "fue agregado exitosamente!" << endl;
+			}
+			else {
+				cout << "El usuario " << palabra << " ya existe, elija otro ID" << endl;
+			}
+			system("pause");
+			break;
+
+		case 2:
+			system("cls");
+			cout << "Ingrese el id del usuario que desea eliminar>>";
+			cin >> palabra;
+			if (Usuarios.existe(palabra)) {
+				Usuarios.my_delete(palabra);
+				cout << "El usuario " << palabra << "fue agregado exitosamente!" << endl;
+			}
+			else {
+				cout << "El usuario " << palabra << " ya existe, elija otro ID" << endl;
+			}
+			system("pause");
+			break;
+
+		case 3:
+			system("cls");
+			Usuarios.graficar();
+			system("pause");
+			break;
+
+		case 4:
+			cout << "Regresando al menu principal.";
 			for (int a = 0; a < 10; a++) {
 				Sleep(100);
 				cout << ".";
@@ -455,7 +584,7 @@ void splitear_Imagenes(string str) {
 				cout << "ERROR: La capa " << no_capa << " no existe" << endl;
 			}
 
-			Imagenes.insertarNuevo(ID, Capas_IMG.primero);
+			Imagenes.insertarNuevo(ID, Capas_IMG.primero);//tengo q mandar primero y ultimo
 			Nodo_c *nodImg = Imagenes.buscarNodo(ID);
 			if (nodImg != NULL)
 			{
@@ -585,6 +714,7 @@ void Recorrido_Lim(int no_capas, int tipo_recorrido) {
 		cout << "Se superpondran las capas: " << contenido_recorrido << endl;
 		Sleep(500);
 		break;
+
 	default:
 		break;
 	}
