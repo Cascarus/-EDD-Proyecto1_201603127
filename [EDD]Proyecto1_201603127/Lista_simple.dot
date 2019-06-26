@@ -1,6 +1,0 @@
-digraph {
- rankdir=TB;
-	NodeCapa_2->NodeCapa_7[constraint=false]; 
-	NodeCapa_2[shape=box,style=filled,color=chartreuse1  , label = "Capa_2 "] 
-	NodeCapa_7[shape=box,style=filled,color=chartreuse1  , label = "Capa_7 "] 
-}

@@ -47,6 +47,7 @@ public:
 	void graficar();
 	string recorrer(Nodo_Lista *primero);
 	string recorrer2(int no,Nodo_Lista *primero);
+	string recorrer3(int no, Nodo_Lista *primero);
 	string cadena(int a);
 	void buscar_dim_mayores(Nodo_ABB *&capa);
 	

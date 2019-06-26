@@ -31,10 +31,12 @@ void Cargar_Archivos();
 void Generar_Imagenes();
 void mUsuarios();
 void mImagenes();
+void reportes();
 void splitear_Capas(string s);
 void splitear_Imagenes(string s);
 void splitear_Usuarios(string s);
 string splitear_Recorridos(string s, int no);
+void graf_recorrido(string str, int no_capas);
 void Recorrido_Lim(int no_capas, int tipo_recorrido);
 
 bool esNumero(string linea);
@@ -43,14 +45,15 @@ string cadena(int numero);
 int main() {
 	 
 	int opcion = 0;
-	while (opcion != 5) {
+	while (opcion != 6) {
 		system("cls");
 		cout << "-----------------MENU PRINCIPAL-----------------" << endl;
 		cout << "|   1. CARGAR ARCHIVOS                         |" << endl;
 		cout << "|   2. GENERARCION DE IMAGENES                 |" << endl;
 		cout << "|   3. USUARIOS                                |" << endl;
 		cout << "|   4. IMAGENES                                |" << endl;
-		cout << "|   5. SALIR                                   |" << endl;
+		cout << "|   5. REPORTES                                |" << endl;
+		cout << "|   6. SALIR                                   |" << endl;
 		cout << "------------------------------------------------" << endl;
 		cout << "ingrese la opcion que desee realizar: ";
 		cin >> opcion;
@@ -79,6 +82,11 @@ int main() {
 			break;
 
 		case 5:
+			system("cls");
+			reportes();
+			break;
+
+		case 6:
 			cout << "Finalizando.";
 			for (int a = 0; a < 10; a++) {
 				Sleep(100);
@@ -104,10 +112,12 @@ void Cargar_Archivos() {
 
 	while (opcion != 4) {
 		system("cls");
-		cout << "1. CARGAR CAPAS" << endl;
-		cout << "2. CARGAR IMAGENES" << endl;
-		cout << "3. CARGAR USUARIOS" << endl;
-		cout << "4. SALIR" << endl;
+		cout << "------------------MENU CARGAR------------------" << endl;
+		cout << "|   1. CARGAR CAPAS                           |" << endl;
+		cout << "|   2. CARGAR IMAGENES                        |" << endl;
+		cout << "|   3. CARGAR USUARIOS                        |" << endl;
+		cout << "|   4. SALIR                                  |" << endl;
+		cout << "-----------------------------------------------" << endl;
 		cout << "ingrese la opcion que desee realizar: ";
 		cin >> opcion;
 
@@ -128,14 +138,14 @@ void Cargar_Archivos() {
 				palabra = "";
 				Nodo_ABB *nodlist = Arbol_Capas.busNodo(2);
 				Matriz matri = new Matriz(true);
-				matri.graficar(nodlist->id, nodlist->principal);
-				cout << nodlist->contenido;
+				//matri.graficar(nodlist->id, nodlist->principal);
+				//cout << nodlist->contenido;
 			}
 			else {
 				cout << "No se pudo abrir el archivo!!" << endl;
 			}
 			inFile.close();
-			Arbol_Capas.graficar();
+			//Arbol_Capas.graficar();
 			Arbol_Capas.graficar_Espejo();
 			Arbol_Capas.graficar();
 			system("pause");
@@ -152,7 +162,7 @@ void Cargar_Archivos() {
 					splitear_Imagenes(palabra);
 				}
 				palabra = "";
-				Imagenes.graf();
+				//Imagenes.graf();
 			}
 			else {
 				cout << "No se pudo abrir el archivo!!" << endl;
@@ -181,8 +191,8 @@ void Cargar_Archivos() {
 				cout << "No se pudo abrir el archivo!!" << endl;
 			}
 			inFile.close();
-			Usuarios.graficar();
-			Imagenes.graf();
+			//Usuarios.graficar();
+			//Imagenes.graf();
 			system("pause");
 			break;
 
@@ -192,6 +202,7 @@ void Cargar_Archivos() {
 				Sleep(100);
 				cout << ".";
 			}
+			cout << endl;
 			break;
 
 		default:
@@ -212,11 +223,13 @@ void Generar_Imagenes() {
 
 	while (opcion != 5) {
 		system("cls");
-		cout << "1. POR RECORRIDO LIMITADO" << endl;
-		cout << "2. POR LISTA DE IMAGENES" << endl;
-		cout << "3. POR CAPA" << endl;
-		cout << "4. POR USUARIO" << endl;
-		cout << "5. SALIR" << endl;
+		cout << "----------------MENU GENERAR IMAGEN----------------" << endl;
+		cout << "|   1. POR RECORRIDO LIMITADO                     |" << endl;
+		cout << "|   2. POR LISTA DE IMAGENES                      |" << endl;
+		cout << "|   3. POR CAPA                                   |" << endl;
+		cout << "|   4. POR USUARIO                                |" << endl;
+		cout << "|   5. SALIR                                      |" << endl;
+		cout << "---------------------------------------------------" << endl;
 		cout << "ingrese la opcion que desee realizar: ";
 		cin >> opcion;
 
@@ -261,6 +274,8 @@ void Generar_Imagenes() {
 					Sleep(1000);
 				}
 			} while (repetir);
+			repetir = true;
+			repetir2 = true;
 			system("pause");
 			break;
 
@@ -315,6 +330,7 @@ void Generar_Imagenes() {
 					Sleep(1000);
 				}
 			} while (repetir);
+			repetir = true;
 			system("pause");
 			break;
 
@@ -377,7 +393,7 @@ void Generar_Imagenes() {
 
 void mUsuarios() {
 	int opcion = 0;
-	string palabra;
+	string palabra, id_nuevo;
 
 	while (opcion != 4) {
 		system("cls");
@@ -420,7 +436,19 @@ void mUsuarios() {
 
 		case 3:
 			system("cls");
-			Usuarios.graficar();
+			cout << "Ingrese el id del usuario que desea modificar>>";
+			cin >> palabra;
+			if (Usuarios.existe(palabra)) {
+				cout << "Ingrese el nuevo id >>" ;
+				cin >> id_nuevo;
+				if (!Usuarios.existe(id_nuevo)) {
+					Usuarios.update2(palabra, id_nuevo);
+				}else{
+					cout << "El usuario " << id_nuevo << " ya existe, elija otro ID" << endl;
+				}
+			} else {
+				cout << "El usuario " << palabra << " ya existe, elija otro ID" << endl;
+			}
 			system("pause");
 			break;
 
@@ -449,8 +477,8 @@ void mImagenes() {
 		system("cls");
 		cout << "-----------------MENU IMAGENES-----------------" << endl;
 		cout << "|   1. AGREGAR IMAGEN                         |" << endl;
-		cout << "|   2. ELIMINAR IMAGEN                       |" << endl;
-		cout << "|   3. MODIFICAR USUARIO                      |" << endl;
+		cout << "|   2. ELIMINAR IMAGEN                        |" << endl;
+		cout << "|   3. MODIFICAR USUARIO                      |" << endl;//VOLARME
 		cout << "|   4. SALIR                                  |" << endl;
 		cout << "-----------------------------------------------" << endl;
 		cout << "ingrese la opcion que desee realizar: ";
@@ -519,13 +547,213 @@ void mImagenes() {
 			system("pause");
 			break;
 
-		case 3:
+		case 3://VOLERLA
 			system("cls");
 			Usuarios.graficar();
 			system("pause");
 			break;
 
 		case 4:
+			cout << "Regresando al menu principal.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			break;
+
+		default:
+			cout << "Inserte una opcion valida!!" << endl;
+			system("pause");
+			break;
+		}
+	}
+}
+
+void reportes() {
+	int opcion = 0;
+	string linea, id_img;
+	string imagenes_usurio = "";
+	bool repetir = true;
+
+	while (opcion != 15) {
+		system("cls");
+		cout << "-----------------MENU REPORTES-----------------" << endl;
+		cout << "|   1. LISTA DE IMAGENES                      |" << endl;
+		cout << "|   2. ARBOL DE CAPAS                         |" << endl;
+		cout << "|   3. ESPEJO DE CAPAS                        |" << endl;
+		cout << "|   4. VER CAPA                               |" << endl;
+		cout << "|   5. IMAGEN Y CAPA*                         |" << endl;
+		cout << "|   6. ARBOL USUARIOS                         |" << endl;
+		cout << "|   8. CAPAS HOJAS                            |" << endl;
+		cout << "|   10. MOSTRAR CAPAS EN POSTORDEN            |" << endl;
+		cout << "|   11. LISTA DE CAPAS POR RECORRIDO          |" << endl;
+		cout << "|   13. ESPEJO DE USUARIOS                    |" << endl;
+		cout << "|   14. LISTA DE USUARIOS POR RECORRIDO       |" << endl;
+		cout << "|   15. SALIR                                 |" << endl;
+		cout << "-----------------------------------------------" << endl;
+		cout << "ingrese la opcion que desee realizar: ";
+		cin >> opcion;
+
+		switch (opcion) {
+		case 1:
+			system("cls");
+			cout << "Graficando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			cout << endl;
+			Imagenes.graf();
+			system("pause");
+			break;
+
+		case 2:
+			system("cls");
+			cout << "Graficando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			cout << endl;
+			Arbol_Capas.graficar();
+			system("pause");
+			break;
+
+		case 3:
+			system("cls");
+			cout << "Graficando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			cout << endl;
+			Arbol_Capas.graficar_Espejo();
+			system("pause");
+			break;
+
+		case 4:
+			do {
+				Matriz matri = new Matriz(true);
+				int no_capa;
+				system("cls");
+				cout << "Ingrese el numero de la capa capas>> ";
+				cin >> linea;
+
+				if (esNumero(linea)) {
+					repetir = false;
+					no_capa = atoi(linea.c_str());
+					if (Arbol_Capas.existe(no_capa)) {
+						Nodo_ABB *nodlist = Arbol_Capas.busNodo(no_capa);
+						matri.graficar(nodlist->id, nodlist->principal);
+					} else {
+						cout << "La capa "<< no_capa << " no existe" << endl;
+						repetir = true;
+					}
+				}
+				else {
+					cout << "Debe ingresar solamente numeros positivos" << endl;
+					Sleep(1000);
+				}
+			} while (repetir);
+			repetir = true;
+			system("pause");
+			break;
+
+		case 5:
+			int no_capas;
+			do {
+				system("cls");
+				cout << "Ingrese el id de la imagen que desea graficar>> ";
+				cin >> linea;
+
+				if (esNumero(linea)) {
+					repetir = false;
+					no_capas = atoi(linea.c_str());
+					Nodo_c *IMG = Imagenes.buscarNodo(no_capas);
+					if (IMG != NULL) {
+						Imagenes.crear_IMG2(IMG,Arbol_Capas.raiz);
+					}
+					else {
+						cout << "ERROR: la imagen " << no_capas << " no existe";
+						Sleep(1000);
+						repetir = true;
+					}
+				}
+				else {
+					cout << "Debe ingresar solamente numeros positivos" << endl;
+					Sleep(1000);
+				}
+			} while (repetir);
+			system("pause");
+			break;
+
+		case 6:
+			system("cls");
+			cout << "Graficando.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			Usuarios.graficar();
+			system("pause");
+			break;
+
+		case 8:
+			system("cls");
+			cout << "Capas que son hojas: ";
+			cout << Arbol_Capas.bHojas();//AGERGAR SLATO LIN
+			system("pause");
+			break;
+
+		case 10:
+			system("cls");
+			Arbol_Capas.PostOrden(Arbol_Capas.raiz);
+			cout << "Capas en postorden: " << Arbol_Capas.posOrd << endl;
+			graf_recorrido(Arbol_Capas.posOrd, Arbol_Capas.no_Nodos);
+			Arbol_Capas.posOrd = "";
+			system("pause");
+			break;
+
+		case 11:
+			system("cls");
+			Arbol_Capas.PreOrden(Arbol_Capas.raiz);
+			Arbol_Capas.InOrden(Arbol_Capas.raiz);
+			Arbol_Capas.PostOrden(Arbol_Capas.raiz);
+			cout << "Capas en preorden: " << Arbol_Capas.preOrd << endl;
+			cout << "Capas en inorden: " << Arbol_Capas.inOrd << endl;
+			cout << "Capas en postorden: " << Arbol_Capas.posOrd << endl;
+			Arbol_Capas.preOrd = "";
+			Arbol_Capas.inOrd = "";
+			Arbol_Capas.posOrd = "";
+			system("pause");
+			break;
+
+		case 13:
+			system("cls");
+			cout << "Creando espejo de usuario.";
+			for (int a = 0; a < 10; a++) {
+				Sleep(100);
+				cout << ".";
+			}
+			Usuarios.graficar_Espejo();
+			system("pause");
+			break;
+
+		case 14:
+			system("cls");
+			Usuarios.PreOrden(Usuarios.raiz);
+			Usuarios.InOrden(Usuarios.raiz);
+			Usuarios.PostOrden(Usuarios.raiz);
+			cout << "Usuarios en preorden: " << Usuarios.preOrd << endl;
+			cout << "Usuarios en inorden: " << Usuarios.inOrd << endl;
+			cout << "Usuarios en postorden: " << Usuarios.posOrd << endl;
+			Usuarios.preOrd = "";
+			Usuarios.inOrd = "";
+			Usuarios.posOrd = "";
+			system("pause");
+			break;
+
+		case 15:
 			cout << "Regresando al menu principal.";
 			for (int a = 0; a < 10; a++) {
 				Sleep(100);
@@ -554,21 +782,21 @@ void splitear_Capas(string str) {
 		else if (x == ',') {
 
 			if (encontradoF == false) {
-				cout << "la coordenada en fila es: " << palabra << endl;
+				//cout << "la coordenada en fila es: " << palabra << endl;
 				fila = atoi(palabra.c_str());
 				encontradoF = true;
 			}
 			else if (encontradoC == false) {
-				cout << "la coordenada en columna es: " << palabra << endl;
+				//cout << "la coordenada en columna es: " << palabra << endl;
 				columna = atoi(palabra.c_str());
 				encontradoC = true;
 			}
 			palabra = "";
 		}
 		else if (x == ';') {
-			cout << "El color de la celda es: " << palabra << endl;
+			//cout << "El color de la celda es: " << palabra << endl;
 			color = palabra;
-			cout << "Se crea el nodo en la matriz y se guarda en el ABB" << endl;
+			//cout << "Se crea el nodo en la matriz y se guarda en el ABB" << endl;
 			Nodo_ABB *nodlist = Arbol_Capas.busNodo(ID);
 			nodlist = matri.agregarMatriz(ID, fila, columna, color, nodlist);
 			Arbol_Capas.modificar(ID, nodlist);
@@ -577,7 +805,7 @@ void splitear_Capas(string str) {
 			palabra = "";
 		}
 		else if (x == '}') {
-			cout << "se reinician todas las variables" << endl;
+			//cout << "se reinician todas las variables" << endl;
 			Nodo_ABB *nodlist = Arbol_Capas.busNodo(ID);
 			nodlist->contenido = contenido;
 			Arbol_Capas.modificar(ID, nodlist);
@@ -719,6 +947,29 @@ string splitear_Recorridos(string str, int no_capas) {
 	return strCapas;
 }
 
+void graf_recorrido(string str, int no_capas) {
+	string palabra = "";
+	int id;
+	for (auto x : str) {
+		if (no_capas != 0) {
+			if (x == ' ') {
+				id = atoi(palabra.c_str());
+				Nodo_ABB *nodlist = Arbol_Capas.busNodo(id);
+				Matriz matri = new Matriz(true);
+				matri.graficar(nodlist->id, nodlist->principal);
+				palabra = "";
+				no_capas--;
+			}
+			else {
+				palabra += x;
+			}
+		}
+		else {
+			break;
+		}
+	}
+}
+
 void Recorrido_Lim(int no_capas, int tipo_recorrido) {
 	string contenido_recorrido = "", id_string = "";
 	Lista_Doble_Circular Copia_Imagenes = Imagenes;
@@ -733,6 +984,7 @@ void Recorrido_Lim(int no_capas, int tipo_recorrido) {
 		id_string += "{";
 		contenido_recorrido =  splitear_Recorridos(Arbol_Capas.preOrd, no_capas);
 		cout << "Se superpondran las capas: " << contenido_recorrido << endl;
+		Arbol_Capas.preOrd = "";
 		Sleep(500);
 
 		break;
@@ -743,6 +995,7 @@ void Recorrido_Lim(int no_capas, int tipo_recorrido) {
 		id_string += "{";
 		contenido_recorrido = splitear_Recorridos(Arbol_Capas.inOrd, no_capas);
 		cout << "Se superpondran las capas: " << contenido_recorrido << endl;
+		Arbol_Capas.inOrd = "";
 		Sleep(500);
 		break;
 	case 3:
@@ -752,6 +1005,7 @@ void Recorrido_Lim(int no_capas, int tipo_recorrido) {
 		id_string += "{";
 		contenido_recorrido = splitear_Recorridos(Arbol_Capas.posOrd, no_capas);
 		cout << "Se superpondran las capas: " << contenido_recorrido << endl;
+		Arbol_Capas.posOrd = "";
 		Sleep(500);
 		break;
 

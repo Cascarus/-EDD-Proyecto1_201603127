@@ -224,15 +224,15 @@ string Binario::recorrer(Nodo_ABB *inicio) {
 	if (inicio != NULL) {
 
 		if (inicio->izquierda != NULL) {
-			grafica += "\tNode" + cadena(inicio->id) + ":C0->" + "Node" + cadena(inicio->izquierda->id) + "; \n";
+			grafica += "\tNode" + cadena(inicio->id) + ":C0->" + "Node" + cadena(inicio->izquierda->id) + ":C3; \n";
 		}
 		if (inicio->derecha != NULL) {
-			grafica += "\tNode" + cadena(inicio->id) + ":C1->" + "Node" + cadena(inicio->derecha->id) + "; \n";
+			grafica += "\tNode" + cadena(inicio->id) + ":C1->" + "Node" + cadena(inicio->derecha->id) + ":C3; \n";
 		}
 
 		recorrer(inicio->izquierda);
 		recorrer(inicio->derecha);
-		grafica += "\n \tNode" + cadena(inicio->id) + "[label = \"<C0>|Capa_" + cadena(inicio->id) + "|<C1>\"] \n";
+		grafica += "\n \tNode" + cadena(inicio->id) + "[label = \"<C0>|<C3>Capa_" + cadena(inicio->id) + "|<C1>\"] \n";
 	}
 	return grafica;
 }
@@ -329,6 +329,22 @@ void Binario::PostOrden(Nodo_ABB *raiz) {
 		//cout << raiz->id << " ";
 		posOrd += cadena(raiz->id) + " ";
 	}
+}
+
+void Binario::buscarHojas(Nodo_ABB *raiz) {
+	if (raiz != NULL) {
+		if (raiz->izquierda == NULL && raiz->derecha == NULL) {
+			hojas += "capa_" + cadena(raiz->id) + " ";
+		}
+		buscarHojas(raiz->izquierda);
+		buscarHojas(raiz->derecha);
+	}
+}
+
+string Binario::bHojas() {
+	hojas = "";
+	buscarHojas(raiz);
+	return hojas;
 }
 
 string Binario::cadena(int n) {

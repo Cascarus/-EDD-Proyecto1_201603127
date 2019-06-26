@@ -216,6 +216,26 @@ void AVL::actualizar(Nodo_Arbol *current, string nick, Lista_Doble_Circular actu
 	}
 }
 
+void AVL::update2(string nombre, string actual) {
+	string data = nombre;
+	std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+	actualizar2(raiz, data, actual);
+}
+
+void AVL::actualizar2(Nodo_Arbol *current, string nick, string actual) {
+	if (current != NULL) {
+		string data = current->nick;
+		std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+		if (data == nick) {
+			current->nick = actual;
+		}
+		else {
+			actualizar2(current->izquierda, nick, actual);
+			actualizar2(current->derecha, nick, actual);
+		}
+	}
+}
+
 Nodo_Arbol *AVL::buscarNodo(string nick) {
 	Nodo_Arbol *current = raiz;
 	string data = nick;
@@ -267,7 +287,6 @@ Nodo_Arbol *AVL::buscarNod(Nodo_Arbol *raiz, string nick) {
 	return raiz;
 }
 
-
 void AVL::graficar() {
 
 		grafica = "";
@@ -287,6 +306,43 @@ void AVL::graficar() {
 		system("Arbol_AVL.png");
 }
 
+void AVL::Espejo(Nodo_Arbol *raiz_E) {
+	if (raiz_E == NULL)
+		return;
+	else
+	{
+		Nodo_Arbol *temp;
+
+		Espejo(raiz_E->izquierda);
+		Espejo(raiz_E->derecha);
+
+		temp = raiz_E->izquierda;
+		raiz_E->izquierda = raiz_E->derecha;
+		raiz_E->derecha = temp;
+	}
+}
+
+void AVL::graficar_Espejo() {
+
+	grafica = "";
+	//crea una "copia" de la raiz en el espejo para que no altere la raiz principal
+	raiz_Espejo = raiz;
+	Espejo(raiz_Espejo); //ejecuta el metodo de espejo que cambia las direcciones de los punteros
+
+	ofstream arch;
+
+	arch.open("AVL_Espejo.dot");
+	arch << "digraph g{" << endl;
+	//arch << "\tnode [shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2];\n";
+	recorrer(raiz);
+	arch << grafica;
+	arch << "}" << endl;
+	arch.close();
+	system("dot -Tpng AVL_Espejo.dot -o AVL_Espejo.png");
+	system("AVL_Espejo.png");
+	Espejo(raiz_Espejo);
+}
+
 void AVL::recorrer(Nodo_Arbol *inicio) {
 	if (inicio != NULL) {
 		if (inicio->izquierda != NULL) {
@@ -303,6 +359,37 @@ void AVL::recorrer(Nodo_Arbol *inicio) {
 		recorrer(inicio->izquierda);
 		recorrer(inicio->derecha);
 		grafica += "\n \tNode" + cadena(inicio->hash) + "[shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2,label = \"<C0>|Usuario: " + inicio->nick + "|<C1>\"] \n";
+	}
+}
+
+void AVL::PreOrden(Nodo_Arbol *raiz) {
+	if (raiz != NULL) {
+		//cout << raiz->id << " ";
+		preOrd += raiz->nick + " ";
+
+		PreOrden(raiz->izquierda);
+		PreOrden(raiz->derecha);
+	}
+}
+
+void AVL::InOrden(Nodo_Arbol *raiz) {
+	if (raiz != NULL) {
+		InOrden(raiz->izquierda);
+
+		//cout << raiz->id << " ";
+		inOrd += raiz->nick + " ";
+
+		InOrden(raiz->derecha);
+	}
+}
+
+void AVL::PostOrden(Nodo_Arbol *raiz) {
+	if (raiz != NULL) {
+		PostOrden(raiz->izquierda);
+		PostOrden(raiz->derecha);
+
+		//cout << raiz->id << " ";
+		posOrd += raiz->nick + " ";
 	}
 }
 

@@ -105,6 +105,21 @@ string Lista_Simple::recorrer2(int no,Nodo_Lista *raiz) {
 	return graf;
 }
 
+string Lista_Simple::recorrer3(int no, Nodo_Lista *raiz) {
+	string graf = "";
+	Nodo_Lista *actual = raiz;
+	if (raiz != NULL) {
+		if (actual->siguiente != NULL) {
+			graf += "\tNodeCapa_" + cadena(actual->dato) + "_" + cadena(no) + "->" + "NodeCapa_" + cadena(actual->siguiente->dato) + "_" + cadena(no) + "[constraint=true]; \n";
+		}
+		graf += "\tNodeCapa_" + cadena(actual->dato) + "_" + cadena(no) + "->" + "Node" + cadena(actual->dato) + ":C3" + "[style=dotted]; \n";
+		graf += "\tNodeCapa_" + cadena(actual->dato) + "_" + cadena(no) + "[shape=box,style=filled,color=chartreuse1  , label = \"Capa_" + cadena(actual->dato) + " \"] \n";
+		graf += recorrer3(no, actual->siguiente);
+	}
+	return graf;
+}
+
+
 string Lista_Simple::cadena(int n) {
 	stringstream flujo;
 	flujo << n;

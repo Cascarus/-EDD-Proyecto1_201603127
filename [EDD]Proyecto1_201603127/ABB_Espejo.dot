@@ -1,47 +1,47 @@
 digraph g{
 	node [shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2];
-	Node7:C0->Node11; 
-	Node7:C1->Node3; 
-	Node11:C0->Node13; 
-	Node11:C1->Node9; 
-	Node13:C0->Node100; 
-	Node13:C1->Node12; 
+	Node7:C0->Node11:C3; 
+	Node7:C1->Node3:C3; 
+	Node11:C0->Node13:C3; 
+	Node11:C1->Node9:C3; 
+	Node13:C0->Node100:C3; 
+	Node13:C1->Node12:C3; 
 
- 	Node100[label = "<C0>|Capa_100|<C1>"] 
+ 	Node100[label = "<C0>|<C3>Capa_100|<C1>"] 
 
- 	Node12[label = "<C0>|Capa_12|<C1>"] 
+ 	Node12[label = "<C0>|<C3>Capa_12|<C1>"] 
 
- 	Node13[label = "<C0>|Capa_13|<C1>"] 
-	Node9:C0->Node10; 
-	Node9:C1->Node8; 
+ 	Node13[label = "<C0>|<C3>Capa_13|<C1>"] 
+	Node9:C0->Node10:C3; 
+	Node9:C1->Node8:C3; 
 
- 	Node10[label = "<C0>|Capa_10|<C1>"] 
+ 	Node10[label = "<C0>|<C3>Capa_10|<C1>"] 
 
- 	Node8[label = "<C0>|Capa_8|<C1>"] 
+ 	Node8[label = "<C0>|<C3>Capa_8|<C1>"] 
 
- 	Node9[label = "<C0>|Capa_9|<C1>"] 
+ 	Node9[label = "<C0>|<C3>Capa_9|<C1>"] 
 
- 	Node11[label = "<C0>|Capa_11|<C1>"] 
-	Node3:C0->Node5; 
-	Node3:C1->Node1; 
-	Node5:C0->Node6; 
-	Node5:C1->Node4; 
+ 	Node11[label = "<C0>|<C3>Capa_11|<C1>"] 
+	Node3:C0->Node5:C3; 
+	Node3:C1->Node1:C3; 
+	Node5:C0->Node6:C3; 
+	Node5:C1->Node4:C3; 
 
- 	Node6[label = "<C0>|Capa_6|<C1>"] 
+ 	Node6[label = "<C0>|<C3>Capa_6|<C1>"] 
 
- 	Node4[label = "<C0>|Capa_4|<C1>"] 
+ 	Node4[label = "<C0>|<C3>Capa_4|<C1>"] 
 
- 	Node5[label = "<C0>|Capa_5|<C1>"] 
-	Node1:C0->Node2; 
-	Node1:C1->Node0; 
+ 	Node5[label = "<C0>|<C3>Capa_5|<C1>"] 
+	Node1:C0->Node2:C3; 
+	Node1:C1->Node0:C3; 
 
- 	Node2[label = "<C0>|Capa_2|<C1>"] 
+ 	Node2[label = "<C0>|<C3>Capa_2|<C1>"] 
 
- 	Node0[label = "<C0>|Capa_0|<C1>"] 
+ 	Node0[label = "<C0>|<C3>Capa_0|<C1>"] 
 
- 	Node1[label = "<C0>|Capa_1|<C1>"] 
+ 	Node1[label = "<C0>|<C3>Capa_1|<C1>"] 
 
- 	Node3[label = "<C0>|Capa_3|<C1>"] 
+ 	Node3[label = "<C0>|<C3>Capa_3|<C1>"] 
 
- 	Node7[label = "<C0>|Capa_7|<C1>"] 
+ 	Node7[label = "<C0>|<C3>Capa_7|<C1>"] 
 }

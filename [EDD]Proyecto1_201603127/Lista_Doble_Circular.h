@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <string> 
 #include "Lista_Simple.h"
+#include "Binario.h"
 #include "Matriz.h"
 
 using namespace std;
@@ -52,6 +53,7 @@ public:
 	void recorrer(Nodo_c *primero);
 	void graf();
 	void crear_IMG(Nodo_c *nodo);
+	void crear_IMG2(Nodo_c *nodo, Nodo_ABB *raiz);
 	string cadena(int n);
 	string recorrer2(Nodo_c *&primero,string c);
 

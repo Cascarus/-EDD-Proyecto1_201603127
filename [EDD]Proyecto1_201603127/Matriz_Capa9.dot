@@ -1,265 +1,859 @@
 digraph G {
 	node [shape=record,width=.9,height=.5];
-	Node8260474->Node5812514; 
-	Node8260474->Node5812514[dir=back]; 
-	Node5812514->Node3701113; 
-	Node5812514->Node3701113[dir=back]; 
-	Node3701113->Node576552; 
-	Node3701113->Node576552[dir=back]; 
-	Node576552->Node6681242; 
-	Node576552->Node6681242[dir=back]; 
-	Node6681242->Node2672283; 
-	Node6681242->Node2672283[dir=back]; 
-	Node2672283->Node7765646; 
-	Node2672283->Node7765646[dir=back]; 
-	Node7765646->Node43354; 
-	Node7765646->Node43354[dir=back]; 
-	Node43354->Node2552018; 
-	Node43354->Node2552018[dir=back]; 
-	Node2552018->Node3083316; 
-	Node2552018->Node3083316[dir=back]; 
-	Node3083316->Node5567015; 
-	Node3083316->Node5567015[dir=back]; 
-	Node5567015->Node334647; 
-	Node5567015->Node334647[dir=back]; 
-	Node334647->Node6271605; 
-	Node334647->Node6271605[dir=back]; 
-	Node6271605->Node2620038; 
-	Node6271605->Node2620038[dir=back]; 
-	Node2620038->Node5622642; 
-	Node2620038->Node5622642[dir=back]; 
-	Node5622642->Node17557; 
-	Node5622642->Node17557[dir=back]; 
-	Node17557->Node7537044; 
-	Node17557->Node7537044[dir=back]; 
-	Node8260474->Node4805083; 
-	Node8260474->Node4805083[dir=back]; 
-	Node4805083->Node6615288; 
-	Node4805083->Node6615288[dir=back]; 
-	Node6615288->Node4571668; 
-	Node6615288->Node4571668[dir=back]; 
-	Node4571668->Node200287; 
-	Node4571668->Node200287[dir=back]; 
-	Node200287->Node3057340; 
-	Node200287->Node3057340[dir=back]; 
-	Node3057340->Node6757613; 
-	Node6757613->Node4607248; 
-	Node4607248->Node6757613; 
-	Node3057340->Node6858144; 
-	Node3057340->Node6858144[dir=back]; 
-	Node6858144->Node7646378; 
-	Node7646378->Node6235340; 
-	Node6235340->Node7646378; 
-	Node6858144->Node2880381; 
-	Node6858144->Node2880381[dir=back]; 
-	Node2880381->Node2084877; 
-	Node2084877->Node8721635; 
-	Node8721635->Node6577131; 
-	Node8721635->Node2084877; 
-	Node6577131->Node5313621; 
-	Node6577131->Node8721635; 
-	Node5313621->Node6577131; 
-	Node2880381->Node3361860; 
-	Node2880381->Node3361860[dir=back]; 
-	Node3361860->Node4377554; 
-	Node4377554->Node1724523; 
-	Node1724523->Node4865511; 
-	Node1724523->Node4377554; 
-	Node4865511->Node3422002; 
-	Node4865511->Node1724523; 
-	Node3422002->Node8753411; 
-	Node3422002->Node4865511; 
-	Node8753411->Node4400745; 
-	Node8753411->Node3422002; 
-	Node4400745->Node2183686; 
-	Node4400745->Node8753411; 
-	Node2183686->Node4268703; 
-	Node2183686->Node4400745; 
-	Node4268703->Node5606054; 
-	Node4268703->Node2183686; 
-	Node5606054->Node3005544; 
-	Node5606054->Node4268703; 
-	Node3005544->Node6024670; 
-	Node3005544->Node5606054; 
-	Node6024670->Node3005544; 
-	Node7765646->Node4377554[constraint=false]
-	Node43354->Node2084877[constraint=false]
-	Node2084877->Node1724523[constraint=false]
-	Node1724523->Node2084877[constraint=false]
-	Node2552018->Node4865511[constraint=false]
-	Node3083316->Node6757613[constraint=false]
-	Node6757613->Node8721635[constraint=false]
-	Node8721635->Node3422002[constraint=false]
-	Node8721635->Node6757613[constraint=false]
-	Node3422002->Node8721635[constraint=false]
-	Node5567015->Node4607248[constraint=false]
-	Node4607248->Node7646378[constraint=false]
-	Node7646378->Node8753411[constraint=false]
-	Node7646378->Node4607248[constraint=false]
-	Node8753411->Node7646378[constraint=false]
-	Node334647->Node6235340[constraint=false]
-	Node6235340->Node6577131[constraint=false]
-	Node6577131->Node4400745[constraint=false]
-	Node6577131->Node6235340[constraint=false]
-	Node4400745->Node6577131[constraint=false]
-	Node6271605->Node5313621[constraint=false]
-	Node5313621->Node2183686[constraint=false]
-	Node2183686->Node5313621[constraint=false]
-	Node2620038->Node4268703[constraint=false]
-	Node5622642->Node5606054[constraint=false]
-	Node17557->Node3005544[constraint=false]
-	Node7537044->Node6024670[constraint=false]
+	Node86160->Node6438553; 
+	Node86160->Node6438553[dir=back]; 
+	Node6438553->Node1073407; 
+	Node6438553->Node1073407[dir=back]; 
+	Node1073407->Node3636323; 
+	Node1073407->Node3636323[dir=back]; 
+	Node3636323->Node6331570; 
+	Node3636323->Node6331570[dir=back]; 
+	Node6331570->Node3683432; 
+	Node6331570->Node3683432[dir=back]; 
+	Node3683432->Node5721730; 
+	Node3683432->Node5721730[dir=back]; 
+	Node5721730->Node6074403; 
+	Node5721730->Node6074403[dir=back]; 
+	Node6074403->Node3873737; 
+	Node6074403->Node3873737[dir=back]; 
+	Node3873737->Node6183406; 
+	Node3873737->Node6183406[dir=back]; 
+	Node6183406->Node5031887; 
+	Node6183406->Node5031887[dir=back]; 
+	Node5031887->Node2871522; 
+	Node5031887->Node2871522[dir=back]; 
+	Node2871522->Node3153554; 
+	Node2871522->Node3153554[dir=back]; 
+	Node3153554->Node548668; 
+	Node3153554->Node548668[dir=back]; 
+	Node548668->Node526635; 
+	Node548668->Node526635[dir=back]; 
+	Node526635->Node5240443; 
+	Node526635->Node5240443[dir=back]; 
+	Node5240443->Node6486114; 
+	Node5240443->Node6486114[dir=back]; 
+	Node6486114->Node7265670; 
+	Node6486114->Node7265670[dir=back]; 
+	Node7265670->Node2584237; 
+	Node7265670->Node2584237[dir=back]; 
+	Node2584237->Node8383872; 
+	Node2584237->Node8383872[dir=back]; 
+	Node8383872->Node4341170; 
+	Node8383872->Node4341170[dir=back]; 
+	Node4341170->Node3006045; 
+	Node4341170->Node3006045[dir=back]; 
+	Node3006045->Node8250218; 
+	Node3006045->Node8250218[dir=back]; 
+	Node8250218->Node1874701; 
+	Node8250218->Node1874701[dir=back]; 
+	Node1874701->Node4677867; 
+	Node1874701->Node4677867[dir=back]; 
+	Node4677867->Node8207380; 
+	Node4677867->Node8207380[dir=back]; 
+	Node8207380->Node3772557; 
+	Node8207380->Node3772557[dir=back]; 
+	Node3772557->Node7370085; 
+	Node3772557->Node7370085[dir=back]; 
+	Node7370085->Node2331234; 
+	Node7370085->Node2331234[dir=back]; 
+	Node2331234->Node373268; 
+	Node2331234->Node373268[dir=back]; 
+	Node373268->Node4202401; 
+	Node373268->Node4202401[dir=back]; 
+	Node4202401->Node1128168; 
+	Node4202401->Node1128168[dir=back]; 
+	Node1128168->Node6605303; 
+	Node1128168->Node6605303[dir=back]; 
+	Node6605303->Node6486177; 
+	Node6605303->Node6486177[dir=back]; 
+	Node6486177->Node6438868; 
+	Node6486177->Node6438868[dir=back]; 
+	Node6438868->Node2402465; 
+	Node6438868->Node2402465[dir=back]; 
+	Node2402465->Node1742120; 
+	Node2402465->Node1742120[dir=back]; 
+	Node1742120->Node2526443; 
+	Node1742120->Node2526443[dir=back]; 
+	Node2526443->Node4568564; 
+	Node2526443->Node4568564[dir=back]; 
+	Node4568564->Node6186061; 
+	Node4568564->Node6186061[dir=back]; 
+	Node6186061->Node7846716; 
+	Node6186061->Node7846716[dir=back]; 
+	Node86160->Node5808154; 
+	Node86160->Node5808154[dir=back]; 
+	Node5808154->Node36227; 
+	Node5808154->Node36227[dir=back]; 
+	Node36227->Node6532572; 
+	Node36227->Node6532572[dir=back]; 
+	Node6532572->Node1338717; 
+	Node1338717->Node2533486; 
+	Node2533486->Node1465354; 
+	Node2533486->Node1338717; 
+	Node1465354->Node2533486; 
+	Node6532572->Node1208423; 
+	Node6532572->Node1208423[dir=back]; 
+	Node1208423->Node8486857; 
+	Node8486857->Node2156870; 
+	Node2156870->Node8486857; 
+	Node1208423->Node2575651; 
+	Node1208423->Node2575651[dir=back]; 
+	Node2575651->Node3352854; 
+	Node3352854->Node7605686; 
+	Node7605686->Node5811325; 
+	Node7605686->Node3352854; 
+	Node5811325->Node7605686; 
+	Node2575651->Node402181; 
+	Node2575651->Node402181[dir=back]; 
+	Node402181->Node2601755; 
+	Node2601755->Node2478226; 
+	Node2478226->Node3713763; 
+	Node2478226->Node2601755; 
+	Node3713763->Node7230205; 
+	Node3713763->Node2478226; 
+	Node7230205->Node3713763; 
+	Node402181->Node3846530; 
+	Node402181->Node3846530[dir=back]; 
+	Node3846530->Node3055821; 
+	Node3846530->Node6613174; 
+	Node3846530->Node6613174[dir=back]; 
+	Node6613174->Node8411725; 
+	Node8411725->Node8201773; 
+	Node8201773->Node8411725; 
+	Node6613174->Node6601116; 
+	Node6613174->Node6601116[dir=back]; 
+	Node6601116->Node7688664; 
+	Node7688664->Node3643641; 
+	Node3643641->Node5262283; 
+	Node3643641->Node7688664; 
+	Node5262283->Node3643641; 
+	Node6601116->Node5020747; 
+	Node6601116->Node5020747[dir=back]; 
+	Node5020747->Node6847841; 
+	Node6847841->Node8107701; 
+	Node8107701->Node7778244; 
+	Node8107701->Node6847841; 
+	Node7778244->Node7778168; 
+	Node7778244->Node8107701; 
+	Node7778168->Node1632638; 
+	Node7778168->Node7778244; 
+	Node1632638->Node8234646; 
+	Node1632638->Node7778168; 
+	Node8234646->Node5462551; 
+	Node8234646->Node1632638; 
+	Node5462551->Node3116707; 
+	Node5462551->Node8234646; 
+	Node3116707->Node5462551; 
+	Node5020747->Node2450621; 
+	Node5020747->Node2450621[dir=back]; 
+	Node2450621->Node7012644; 
+	Node7012644->Node4737040; 
+	Node4737040->Node5356557; 
+	Node4737040->Node7012644; 
+	Node5356557->Node8212462; 
+	Node5356557->Node4737040; 
+	Node8212462->Node3150134; 
+	Node8212462->Node5356557; 
+	Node3150134->Node8042580; 
+	Node3150134->Node8212462; 
+	Node8042580->Node3150134; 
+	Node2450621->Node8581134; 
+	Node2450621->Node8581134[dir=back]; 
+	Node8581134->Node2133868; 
+	Node2133868->Node6277155; 
+	Node6277155->Node6351664; 
+	Node6277155->Node2133868; 
+	Node6351664->Node276783; 
+	Node6351664->Node6277155; 
+	Node276783->Node6722320; 
+	Node276783->Node6351664; 
+	Node6722320->Node3546745; 
+	Node6722320->Node276783; 
+	Node3546745->Node6722320; 
+	Node8581134->Node464834; 
+	Node8581134->Node464834[dir=back]; 
+	Node464834->Node5236104; 
+	Node5236104->Node1664571; 
+	Node1664571->Node5236104; 
+	Node464834->Node3034588; 
+	Node464834->Node3034588[dir=back]; 
+	Node3034588->Node4242861; 
+	Node4242861->Node3577703; 
+	Node3577703->Node12617; 
+	Node3577703->Node4242861; 
+	Node12617->Node5847056; 
+	Node12617->Node3577703; 
+	Node5847056->Node3767157; 
+	Node5847056->Node12617; 
+	Node3767157->Node5847056; 
+	Node3034588->Node6764874; 
+	Node3034588->Node6764874[dir=back]; 
+	Node6764874->Node6606663; 
+	Node6606663->Node2504213; 
+	Node2504213->Node7321775; 
+	Node2504213->Node6606663; 
+	Node7321775->Node4718503; 
+	Node7321775->Node2504213; 
+	Node4718503->Node3107675; 
+	Node4718503->Node7321775; 
+	Node3107675->Node8682601; 
+	Node3107675->Node4718503; 
+	Node8682601->Node3107675; 
+	Node6764874->Node4477063; 
+	Node6764874->Node4477063[dir=back]; 
+	Node4477063->Node7246478; 
+	Node7246478->Node2482843; 
+	Node2482843->Node7782551; 
+	Node2482843->Node7246478; 
+	Node7782551->Node2482843; 
+	Node4477063->Node7306820; 
+	Node4477063->Node7306820[dir=back]; 
+	Node7306820->Node2235354; 
+	Node2235354->Node1433801; 
+	Node1433801->Node6737421; 
+	Node1433801->Node2235354; 
+	Node6737421->Node2050216; 
+	Node6737421->Node1433801; 
+	Node2050216->Node6737421; 
+	Node7306820->Node1012461; 
+	Node7306820->Node1012461[dir=back]; 
+	Node1012461->Node8073048; 
+	Node8073048->Node8484056; 
+	Node8484056->Node828263; 
+	Node8484056->Node8073048; 
+	Node828263->Node2158022; 
+	Node828263->Node8484056; 
+	Node2158022->Node828263; 
+	Node1012461->Node4072473; 
+	Node1012461->Node4072473[dir=back]; 
+	Node4072473->Node5674035; 
+	Node5674035->Node3781122; 
+	Node3781122->Node4383300; 
+	Node3781122->Node5674035; 
+	Node4383300->Node186736; 
+	Node4383300->Node3781122; 
+	Node186736->Node5164840; 
+	Node186736->Node4383300; 
+	Node5164840->Node186736; 
+	Node4072473->Node1132418; 
+	Node4072473->Node1132418[dir=back]; 
+	Node1132418->Node1338148; 
+	Node1338148->Node7874734; 
+	Node7874734->Node3485041; 
+	Node7874734->Node1338148; 
+	Node3485041->Node6783010; 
+	Node3485041->Node7874734; 
+	Node6783010->Node3485041; 
+	Node1132418->Node2883768; 
+	Node1132418->Node2883768[dir=back]; 
+	Node2883768->Node4317861; 
+	Node4317861->Node8505756; 
+	Node8505756->Node7408600; 
+	Node8505756->Node4317861; 
+	Node7408600->Node8505756; 
+	Node2871522->Node7012644[constraint=false]
+	Node7012644->Node2133868[constraint=false]
+	Node2133868->Node4242861[constraint=false]
+	Node2133868->Node7012644[constraint=false]
+	Node4242861->Node6606663[constraint=false]
+	Node4242861->Node2133868[constraint=false]
+	Node6606663->Node7246478[constraint=false]
+	Node6606663->Node4242861[constraint=false]
+	Node7246478->Node2235354[constraint=false]
+	Node7246478->Node6606663[constraint=false]
+	Node2235354->Node5674035[constraint=false]
+	Node2235354->Node7246478[constraint=false]
+	Node5674035->Node2235354[constraint=false]
+	Node3153554->Node6847841[constraint=false]
+	Node6847841->Node4737040[constraint=false]
+	Node4737040->Node6277155[constraint=false]
+	Node4737040->Node6847841[constraint=false]
+	Node6277155->Node3577703[constraint=false]
+	Node6277155->Node4737040[constraint=false]
+	Node3577703->Node2504213[constraint=false]
+	Node3577703->Node6277155[constraint=false]
+	Node2504213->Node3577703[constraint=false]
+	Node548668->Node8107701[constraint=false]
+	Node8107701->Node5356557[constraint=false]
+	Node5356557->Node6351664[constraint=false]
+	Node5356557->Node8107701[constraint=false]
+	Node6351664->Node12617[constraint=false]
+	Node6351664->Node5356557[constraint=false]
+	Node12617->Node7321775[constraint=false]
+	Node12617->Node6351664[constraint=false]
+	Node7321775->Node8073048[constraint=false]
+	Node7321775->Node12617[constraint=false]
+	Node8073048->Node3781122[constraint=false]
+	Node8073048->Node7321775[constraint=false]
+	Node3781122->Node1338148[constraint=false]
+	Node3781122->Node8073048[constraint=false]
+	Node1338148->Node4317861[constraint=false]
+	Node1338148->Node3781122[constraint=false]
+	Node4317861->Node1338148[constraint=false]
+	Node526635->Node8486857[constraint=false]
+	Node8486857->Node3352854[constraint=false]
+	Node3352854->Node7778244[constraint=false]
+	Node3352854->Node8486857[constraint=false]
+	Node7778244->Node8212462[constraint=false]
+	Node7778244->Node3352854[constraint=false]
+	Node8212462->Node276783[constraint=false]
+	Node8212462->Node7778244[constraint=false]
+	Node276783->Node5236104[constraint=false]
+	Node276783->Node8212462[constraint=false]
+	Node5236104->Node5847056[constraint=false]
+	Node5236104->Node276783[constraint=false]
+	Node5847056->Node4718503[constraint=false]
+	Node5847056->Node5236104[constraint=false]
+	Node4718503->Node1433801[constraint=false]
+	Node4718503->Node5847056[constraint=false]
+	Node1433801->Node8484056[constraint=false]
+	Node1433801->Node4718503[constraint=false]
+	Node8484056->Node4383300[constraint=false]
+	Node8484056->Node1433801[constraint=false]
+	Node4383300->Node7874734[constraint=false]
+	Node4383300->Node8484056[constraint=false]
+	Node7874734->Node8505756[constraint=false]
+	Node7874734->Node4383300[constraint=false]
+	Node8505756->Node7874734[constraint=false]
+	Node5240443->Node1338717[constraint=false]
+	Node1338717->Node7605686[constraint=false]
+	Node7605686->Node7778168[constraint=false]
+	Node7605686->Node1338717[constraint=false]
+	Node7778168->Node3150134[constraint=false]
+	Node7778168->Node7605686[constraint=false]
+	Node3150134->Node6722320[constraint=false]
+	Node3150134->Node7778168[constraint=false]
+	Node6722320->Node1664571[constraint=false]
+	Node6722320->Node3150134[constraint=false]
+	Node1664571->Node3767157[constraint=false]
+	Node1664571->Node6722320[constraint=false]
+	Node3767157->Node3107675[constraint=false]
+	Node3767157->Node1664571[constraint=false]
+	Node3107675->Node2482843[constraint=false]
+	Node3107675->Node3767157[constraint=false]
+	Node2482843->Node6737421[constraint=false]
+	Node2482843->Node3107675[constraint=false]
+	Node6737421->Node828263[constraint=false]
+	Node6737421->Node2482843[constraint=false]
+	Node828263->Node186736[constraint=false]
+	Node828263->Node6737421[constraint=false]
+	Node186736->Node3485041[constraint=false]
+	Node186736->Node828263[constraint=false]
+	Node3485041->Node7408600[constraint=false]
+	Node3485041->Node186736[constraint=false]
+	Node7408600->Node3485041[constraint=false]
+	Node6486114->Node2533486[constraint=false]
+	Node2533486->Node2601755[constraint=false]
+	Node2601755->Node1632638[constraint=false]
+	Node2601755->Node2533486[constraint=false]
+	Node1632638->Node2158022[constraint=false]
+	Node1632638->Node2601755[constraint=false]
+	Node2158022->Node5164840[constraint=false]
+	Node2158022->Node1632638[constraint=false]
+	Node5164840->Node6783010[constraint=false]
+	Node5164840->Node2158022[constraint=false]
+	Node6783010->Node5164840[constraint=false]
+	Node7265670->Node1465354[constraint=false]
+	Node1465354->Node2478226[constraint=false]
+	Node2478226->Node8411725[constraint=false]
+	Node2478226->Node1465354[constraint=false]
+	Node8411725->Node7688664[constraint=false]
+	Node8411725->Node2478226[constraint=false]
+	Node7688664->Node8234646[constraint=false]
+	Node7688664->Node8411725[constraint=false]
+	Node8234646->Node7688664[constraint=false]
+	Node2584237->Node2156870[constraint=false]
+	Node2156870->Node5811325[constraint=false]
+	Node5811325->Node3713763[constraint=false]
+	Node5811325->Node2156870[constraint=false]
+	Node3713763->Node3643641[constraint=false]
+	Node3713763->Node5811325[constraint=false]
+	Node3643641->Node5462551[constraint=false]
+	Node3643641->Node3713763[constraint=false]
+	Node5462551->Node3643641[constraint=false]
+	Node6186061->Node8682601[constraint=false]
+	Node8682601->Node7782551[constraint=false]
+	Node7782551->Node2050216[constraint=false]
+	Node7782551->Node8682601[constraint=false]
+	Node2050216->Node7782551[constraint=false]
+	Node7846716->Node7230205[constraint=false]
+	Node7230205->Node3055821[constraint=false]
+	Node3055821->Node8201773[constraint=false]
+	Node3055821->Node7230205[constraint=false]
+	Node8201773->Node5262283[constraint=false]
+	Node8201773->Node3055821[constraint=false]
+	Node5262283->Node3116707[constraint=false]
+	Node5262283->Node8201773[constraint=false]
+	Node3116707->Node8042580[constraint=false]
+	Node3116707->Node5262283[constraint=false]
+	Node8042580->Node3546745[constraint=false]
+	Node8042580->Node3116707[constraint=false]
+	Node3546745->Node8042580[constraint=false]
+
+ 	Node86160[label = "Capa 9"] 
+
+ 	Node6438553[label = "Y:1"] 
+
+ 	Node1073407[label = "Y:2"] 
+
+ 	Node3636323[label = "Y:3"] 
+
+ 	Node6331570[label = "Y:4"] 
+
+ 	Node3683432[label = "Y:5"] 
+
+ 	Node5721730[label = "Y:6"] 
+
+ 	Node6074403[label = "Y:7"] 
+
+ 	Node3873737[label = "Y:8"] 
+
+ 	Node6183406[label = "Y:9"] 
+
+ 	Node5031887[label = "Y:10"] 
+
+ 	Node2871522[label = "Y:11"] 
+
+ 	Node3153554[label = "Y:12"] 
+
+ 	Node548668[label = "Y:13"] 
+
+ 	Node526635[label = "Y:14"] 
+
+ 	Node5240443[label = "Y:15"] 
+
+ 	Node6486114[label = "Y:16"] 
+
+ 	Node7265670[label = "Y:17"] 
+
+ 	Node2584237[label = "Y:18"] 
+
+ 	Node8383872[label = "Y:19"] 
+
+ 	Node4341170[label = "Y:20"] 
+
+ 	Node3006045[label = "Y:21"] 
+
+ 	Node8250218[label = "Y:22"] 
+
+ 	Node1874701[label = "Y:23"] 
+
+ 	Node4677867[label = "Y:24"] 
+
+ 	Node8207380[label = "Y:25"] 
+
+ 	Node3772557[label = "Y:26"] 
+
+ 	Node7370085[label = "Y:27"] 
+
+ 	Node2331234[label = "Y:28"] 
+
+ 	Node373268[label = "Y:29"] 
+
+ 	Node4202401[label = "Y:30"] 
+
+ 	Node1128168[label = "Y:31"] 
+
+ 	Node6605303[label = "Y:32"] 
+
+ 	Node6486177[label = "Y:33"] 
+
+ 	Node6438868[label = "Y:34"] 
+
+ 	Node2402465[label = "Y:35"] 
+
+ 	Node1742120[label = "Y:36"] 
+
+ 	Node2526443[label = "Y:37"] 
+
+ 	Node4568564[label = "Y:38"] 
+
+ 	Node6186061[label = "Y:39"] 
+
+ 	Node7846716[label = "Y:40"] 
+
+ 	Node86160[label = "Capa 9"] 
+
+ 	Node5808154[label = "X: 1"] 
+
+ 	Node5808154[label = "X: 1"] 
+
+ 	Node36227[label = "X: 2"] 
+
+ 	Node36227[label = "X: 2"] 
+
+ 	Node6532572[label = "X: 3"] 
+
+ 	Node1338717[color="#FFFF99",style=filled, label = "15,3\n #FFFF99"] 
+
+ 	Node2533486[label = "16,3\n #FFFF99"] 
+
+ 	Node2533486[color="#FFFF99",style=filled, label = "16,3\n #FFFF99"] 
+
+ 	Node1465354[label = "17,3\n #FFFF99"] 
+
+ 	Node1465354[color="#FFFF99",style=filled, label = "17,3\n #FFFF99"] 
+
+ 	Node6532572[label = "X: 3"] 
+
+ 	Node1208423[label = "X: 4"] 
+
+ 	Node8486857[color="#FFFF99",style=filled, label = "14,4\n #FFFF99"] 
+
+ 	Node2156870[label = "18,4\n #FFFF99"] 
+
+ 	Node2156870[color="#FFFF99",style=filled, label = "18,4\n #FFFF99"] 
+
+ 	Node1208423[label = "X: 4"] 
+
+ 	Node2575651[label = "X: 5"] 
+
+ 	Node3352854[color="#FFFF99",style=filled, label = "14,5\n #FFFF99"] 
+
+ 	Node7605686[label = "15,5\n #FFFF99"] 
+
+ 	Node7605686[color="#FFFF99",style=filled, label = "15,5\n #FFFF99"] 
+
+ 	Node5811325[label = "18,5\n #FFFF99"] 
+
+ 	Node5811325[color="#FFFF99",style=filled, label = "18,5\n #FFFF99"] 
+
+ 	Node2575651[label = "X: 5"] 
+
+ 	Node402181[label = "X: 6"] 
+
+ 	Node2601755[color="#FFFF99",style=filled, label = "16,6\n #FFFF99"] 
+
+ 	Node2478226[label = "17,6\n #FFFF99"] 
+
+ 	Node2478226[color="#FFFF99",style=filled, label = "17,6\n #FFFF99"] 
+
+ 	Node3713763[label = "18,6\n #FFFF99"] 
+
+ 	Node3713763[color="#FFFF99",style=filled, label = "18,6\n #FFFF99"] 
+
+ 	Node7230205[label = "40,6\n #FFFF99"] 
+
+ 	Node7230205[color="#FFFF99",style=filled, label = "40,6\n #FFFF99"] 
+
+ 	Node402181[label = "X: 6"] 
+
+ 	Node3846530[label = "X: 7"] 
+
+ 	Node3055821[color="#FFFF99",style=filled, label = "40,7\n #FFFF99"] 
+
+ 	Node3846530[label = "X: 7"] 
+
+ 	Node6613174[label = "X: 8"] 
+
+ 	Node8411725[color="#FFFF99",style=filled, label = "17,8\n #FFFF99"] 
+
+ 	Node8201773[label = "40,8\n #FFFF99"] 
+
+ 	Node8201773[color="#FFFF99",style=filled, label = "40,8\n #FFFF99"] 
+
+ 	Node6613174[label = "X: 8"] 
+
+ 	Node6601116[label = "X: 9"] 
+
+ 	Node7688664[color="#FFFF99",style=filled, label = "17,9\n #FFFF99"] 
+
+ 	Node3643641[label = "18,9\n #FFFF99"] 
+
+ 	Node3643641[color="#FFFF99",style=filled, label = "18,9\n #FFFF99"] 
+
+ 	Node5262283[label = "40,9\n #FFFF99"] 
+
+ 	Node5262283[color="#FFFF99",style=filled, label = "40,9\n #FFFF99"] 
+
+ 	Node6601116[label = "X: 9"] 
+
+ 	Node5020747[label = "X: 10"] 
+
+ 	Node6847841[color="#FFFF99",style=filled, label = "12,10\n #FFFF99"] 
+
+ 	Node8107701[label = "13,10\n #FFFF99"] 
+
+ 	Node8107701[color="#FFFF99",style=filled, label = "13,10\n #FFFF99"] 
+
+ 	Node7778244[label = "14,10\n #FFFF99"] 
+
+ 	Node7778244[color="#FFFF99",style=filled, label = "14,10\n #FFFF99"] 
 
- 	Node8260474[label = "Capa 9"] 
+ 	Node7778168[label = "15,10\n #FFFF99"] 
 
- 	Node5812514[label = "Y:1"] 
+ 	Node7778168[color="#FFFF99",style=filled, label = "15,10\n #FFFF99"] 
 
- 	Node3701113[label = "Y:2"] 
+ 	Node1632638[label = "16,10\n #FFFF99"] 
 
- 	Node576552[label = "Y:3"] 
+ 	Node1632638[color="#FFFF99",style=filled, label = "16,10\n #FFFF99"] 
 
- 	Node6681242[label = "Y:4"] 
+ 	Node8234646[label = "17,10\n #FFFF99"] 
 
- 	Node2672283[label = "Y:5"] 
+ 	Node8234646[color="#FFFF99",style=filled, label = "17,10\n #FFFF99"] 
 
- 	Node7765646[label = "Y:6"] 
+ 	Node5462551[label = "18,10\n #FFFF99"] 
 
- 	Node43354[label = "Y:7"] 
+ 	Node5462551[color="#FFFF99",style=filled, label = "18,10\n #FFFF99"] 
 
- 	Node2552018[label = "Y:8"] 
+ 	Node3116707[label = "40,10\n #FFFF99"] 
 
- 	Node3083316[label = "Y:9"] 
+ 	Node3116707[color="#FFFF99",style=filled, label = "40,10\n #FFFF99"] 
 
- 	Node5567015[label = "Y:10"] 
+ 	Node5020747[label = "X: 10"] 
 
- 	Node334647[label = "Y:11"] 
+ 	Node2450621[label = "X: 11"] 
 
- 	Node6271605[label = "Y:12"] 
+ 	Node7012644[color="#FFFF99",style=filled, label = "11,11\n #FFFF99"] 
 
- 	Node2620038[label = "Y:13"] 
+ 	Node4737040[label = "12,11\n #FFFF99"] 
 
- 	Node5622642[label = "Y:14"] 
+ 	Node4737040[color="#FFFF99",style=filled, label = "12,11\n #FFFF99"] 
 
- 	Node17557[label = "Y:15"] 
+ 	Node5356557[label = "13,11\n #FFFF99"] 
 
- 	Node7537044[label = "Y:16"] 
+ 	Node5356557[color="#FFFF99",style=filled, label = "13,11\n #FFFF99"] 
 
- 	Node8260474[label = "Capa 9"] 
+ 	Node8212462[label = "14,11\n #FFFF99"] 
 
- 	Node4805083[label = "X: 1"] 
+ 	Node8212462[color="#FFFF99",style=filled, label = "14,11\n #FFFF99"] 
 
- 	Node4805083[label = "X: 1"] 
+ 	Node3150134[label = "15,11\n #FFFF99"] 
 
- 	Node6615288[label = "X: 2"] 
+ 	Node3150134[color="#FFFF99",style=filled, label = "15,11\n #FFFF99"] 
 
- 	Node6615288[label = "X: 2"] 
+ 	Node8042580[label = "40,11\n #FFFF99"] 
 
- 	Node4571668[label = "X: 3"] 
+ 	Node8042580[color="#FFFF99",style=filled, label = "40,11\n #FFFF99"] 
 
- 	Node4571668[label = "X: 3"] 
+ 	Node2450621[label = "X: 11"] 
 
- 	Node200287[label = "X: 4"] 
+ 	Node8581134[label = "X: 12"] 
 
- 	Node200287[label = "X: 4"] 
+ 	Node2133868[color="#FFFF99",style=filled, label = "11,12\n #FFFF99"] 
 
- 	Node3057340[label = "X: 5"] 
+ 	Node6277155[label = "12,12\n #FFFF99"] 
 
- 	Node6757613[color="#04E72C",style=filled, label = "9,5\n #04E72C"] 
+ 	Node6277155[color="#FFFF99",style=filled, label = "12,12\n #FFFF99"] 
 
- 	Node4607248[label = "10,5\n #04E72C"] 
+ 	Node6351664[label = "13,12\n #FFFF99"] 
 
- 	Node4607248[color="#04E72C",style=filled, label = "10,5\n #04E72C"] 
+ 	Node6351664[color="#FFFF99",style=filled, label = "13,12\n #FFFF99"] 
 
- 	Node3057340[label = "X: 5"] 
+ 	Node276783[label = "14,12\n #FFFF99"] 
 
- 	Node6858144[label = "X: 6"] 
+ 	Node276783[color="#FFFF99",style=filled, label = "14,12\n #FFFF99"] 
 
- 	Node7646378[color="#04E72C",style=filled, label = "10,6\n #04E72C"] 
+ 	Node6722320[label = "15,12\n #FFFF99"] 
 
- 	Node6235340[label = "11,6\n #04E72C"] 
+ 	Node6722320[color="#FFFF99",style=filled, label = "15,12\n #FFFF99"] 
 
- 	Node6235340[color="#04E72C",style=filled, label = "11,6\n #04E72C"] 
+ 	Node3546745[label = "40,12\n #FFFF99"] 
 
- 	Node6858144[label = "X: 6"] 
+ 	Node3546745[color="#FFFF99",style=filled, label = "40,12\n #FFFF99"] 
 
- 	Node2880381[label = "X: 7"] 
+ 	Node8581134[label = "X: 12"] 
 
- 	Node2084877[color="#04E72C",style=filled, label = "7,7\n #04E72C"] 
+ 	Node464834[label = "X: 13"] 
 
- 	Node8721635[label = "9,7\n #04E72C"] 
+ 	Node5236104[color="#FFFF99",style=filled, label = "14,13\n #FFFF99"] 
 
- 	Node8721635[color="#04E72C",style=filled, label = "9,7\n #04E72C"] 
+ 	Node1664571[label = "15,13\n #FFFF99"] 
 
- 	Node6577131[label = "11,7\n #04E72C"] 
+ 	Node1664571[color="#FFFF99",style=filled, label = "15,13\n #FFFF99"] 
 
- 	Node6577131[color="#04E72C",style=filled, label = "11,7\n #04E72C"] 
+ 	Node464834[label = "X: 13"] 
 
- 	Node5313621[label = "12,7\n #04E72C"] 
+ 	Node3034588[label = "X: 14"] 
 
- 	Node5313621[color="#04E72C",style=filled, label = "12,7\n #04E72C"] 
+ 	Node4242861[color="#FFFF99",style=filled, label = "11,14\n #FFFF99"] 
 
- 	Node2880381[label = "X: 7"] 
+ 	Node3577703[label = "12,14\n #FFFF99"] 
 
- 	Node3361860[label = "X: 8"] 
+ 	Node3577703[color="#FFFF99",style=filled, label = "12,14\n #FFFF99"] 
 
- 	Node4377554[color="#04E72C",style=filled, label = "6,8\n #04E72C"] 
+ 	Node12617[label = "13,14\n #FFFF99"] 
 
- 	Node1724523[label = "7,8\n #04E72C"] 
+ 	Node12617[color="#FFFF99",style=filled, label = "13,14\n #FFFF99"] 
 
- 	Node1724523[color="#04E72C",style=filled, label = "7,8\n #04E72C"] 
+ 	Node5847056[label = "14,14\n #FFFF99"] 
 
- 	Node4865511[label = "8,8\n #04E72C"] 
+ 	Node5847056[color="#FFFF99",style=filled, label = "14,14\n #FFFF99"] 
 
- 	Node4865511[color="#04E72C",style=filled, label = "8,8\n #04E72C"] 
+ 	Node3767157[label = "15,14\n #FFFF99"] 
 
- 	Node3422002[label = "9,8\n #04E72C"] 
+ 	Node3767157[color="#FFFF99",style=filled, label = "15,14\n #FFFF99"] 
 
- 	Node3422002[color="#04E72C",style=filled, label = "9,8\n #04E72C"] 
+ 	Node3034588[label = "X: 14"] 
 
- 	Node8753411[label = "10,8\n #04E72C"] 
+ 	Node6764874[label = "X: 15"] 
 
- 	Node8753411[color="#04E72C",style=filled, label = "10,8\n #04E72C"] 
+ 	Node6606663[color="#FFFF99",style=filled, label = "11,15\n #FFFF99"] 
 
- 	Node4400745[label = "11,8\n #04E72C"] 
+ 	Node2504213[label = "12,15\n #FFFF99"] 
 
- 	Node4400745[color="#04E72C",style=filled, label = "11,8\n #04E72C"] 
+ 	Node2504213[color="#FFFF99",style=filled, label = "12,15\n #FFFF99"] 
 
- 	Node2183686[label = "12,8\n #04E72C"] 
+ 	Node7321775[label = "13,15\n #FFFF99"] 
 
- 	Node2183686[color="#04E72C",style=filled, label = "12,8\n #04E72C"] 
+ 	Node7321775[color="#FFFF99",style=filled, label = "13,15\n #FFFF99"] 
 
- 	Node4268703[label = "13,8\n #04E72C"] 
+ 	Node4718503[label = "14,15\n #FFFF99"] 
 
- 	Node4268703[color="#04E72C",style=filled, label = "13,8\n #04E72C"] 
+ 	Node4718503[color="#FFFF99",style=filled, label = "14,15\n #FFFF99"] 
 
- 	Node5606054[label = "14,8\n #04E72C"] 
+ 	Node3107675[label = "15,15\n #FFFF99"] 
 
- 	Node5606054[color="#04E72C",style=filled, label = "14,8\n #04E72C"] 
+ 	Node3107675[color="#FFFF99",style=filled, label = "15,15\n #FFFF99"] 
 
- 	Node3005544[label = "15,8\n #04E72C"] 
+ 	Node8682601[label = "39,15\n #FFFF99"] 
 
- 	Node3005544[color="#04E72C",style=filled, label = "15,8\n #04E72C"] 
+ 	Node8682601[color="#FFFF99",style=filled, label = "39,15\n #FFFF99"] 
 
- 	Node6024670[label = "16,8\n #04E72C"] 
+ 	Node6764874[label = "X: 15"] 
 
- 	Node6024670[color="#04E72C",style=filled, label = "16,8\n #04E72C"] 
+ 	Node4477063[label = "X: 16"] 
 
- 	Node3361860[label = "X: 8"] 
-	{rank = same; Node8260474,Node8260474,Node4805083,Node6615288,Node4571668,Node200287,Node3057340,Node6858144,Node2880381,Node3361860};
-	{rank = same; Node5812514,Node5812514};
-	{rank = same; Node3701113,Node3701113};
-	{rank = same; Node576552,Node576552};
-	{rank = same; Node6681242,Node6681242};
-	{rank = same; Node2672283,Node2672283};
-	{rank = same; Node7765646,Node7765646,Node4377554};
-	{rank = same; Node43354,Node43354,Node2084877,Node1724523};
-	{rank = same; Node2552018,Node2552018,Node4865511};
-	{rank = same; Node3083316,Node3083316,Node6757613,Node8721635,Node3422002};
-	{rank = same; Node5567015,Node5567015,Node4607248,Node7646378,Node8753411};
-	{rank = same; Node334647,Node334647,Node6235340,Node6577131,Node4400745};
-	{rank = same; Node6271605,Node6271605,Node5313621,Node2183686};
-	{rank = same; Node2620038,Node2620038,Node4268703};
-	{rank = same; Node5622642,Node5622642,Node5606054};
-	{rank = same; Node17557,Node17557,Node3005544};
-	{rank = same; Node7537044,Node7537044,Node6024670};
+ 	Node7246478[color="#FFFF99",style=filled, label = "11,16\n #FFFF99"] 
+
+ 	Node2482843[label = "15,16\n #FFFF99"] 
+
+ 	Node2482843[color="#FFFF99",style=filled, label = "15,16\n #FFFF99"] 
+
+ 	Node7782551[label = "39,16\n #FFFF99"] 
+
+ 	Node7782551[color="#FFFF99",style=filled, label = "39,16\n #FFFF99"] 
+
+ 	Node4477063[label = "X: 16"] 
+
+ 	Node7306820[label = "X: 17"] 
+
+ 	Node2235354[color="#FFFF99",style=filled, label = "11,17\n #FFFF99"] 
+
+ 	Node1433801[label = "14,17\n #FFFF99"] 
+
+ 	Node1433801[color="#FFFF99",style=filled, label = "14,17\n #FFFF99"] 
+
+ 	Node6737421[label = "15,17\n #FFFF99"] 
+
+ 	Node6737421[color="#FFFF99",style=filled, label = "15,17\n #FFFF99"] 
+
+ 	Node2050216[label = "39,17\n #FFFF99"] 
+
+ 	Node2050216[color="#FFFF99",style=filled, label = "39,17\n #FFFF99"] 
+
+ 	Node7306820[label = "X: 17"] 
+
+ 	Node1012461[label = "X: 18"] 
+
+ 	Node8073048[color="#FFFF99",style=filled, label = "13,18\n #FFFF99"] 
+
+ 	Node8484056[label = "14,18\n #FFFF99"] 
+
+ 	Node8484056[color="#FFFF99",style=filled, label = "14,18\n #FFFF99"] 
+
+ 	Node828263[label = "15,18\n #FFFF99"] 
+
+ 	Node828263[color="#FFFF99",style=filled, label = "15,18\n #FFFF99"] 
+
+ 	Node2158022[label = "16,18\n #FFFF99"] 
+
+ 	Node2158022[color="#FFFF99",style=filled, label = "16,18\n #FFFF99"] 
+
+ 	Node1012461[label = "X: 18"] 
+
+ 	Node4072473[label = "X: 19"] 
+
+ 	Node5674035[color="#FFFF99",style=filled, label = "11,19\n #FFFF99"] 
+
+ 	Node3781122[label = "13,19\n #FFFF99"] 
+
+ 	Node3781122[color="#FFFF99",style=filled, label = "13,19\n #FFFF99"] 
+
+ 	Node4383300[label = "14,19\n #FFFF99"] 
+
+ 	Node4383300[color="#FFFF99",style=filled, label = "14,19\n #FFFF99"] 
+
+ 	Node186736[label = "15,19\n #FFFF99"] 
+
+ 	Node186736[color="#FFFF99",style=filled, label = "15,19\n #FFFF99"] 
+
+ 	Node5164840[label = "16,19\n #FFFF99"] 
+
+ 	Node5164840[color="#FFFF99",style=filled, label = "16,19\n #FFFF99"] 
+
+ 	Node4072473[label = "X: 19"] 
+
+ 	Node1132418[label = "X: 20"] 
+
+ 	Node1338148[color="#FFFF99",style=filled, label = "13,20\n #FFFF99"] 
+
+ 	Node7874734[label = "14,20\n #FFFF99"] 
+
+ 	Node7874734[color="#FFFF99",style=filled, label = "14,20\n #FFFF99"] 
+
+ 	Node3485041[label = "15,20\n #FFFF99"] 
+
+ 	Node3485041[color="#FFFF99",style=filled, label = "15,20\n #FFFF99"] 
+
+ 	Node6783010[label = "16,20\n #FFFF99"] 
+
+ 	Node6783010[color="#FFFF99",style=filled, label = "16,20\n #FFFF99"] 
+
+ 	Node1132418[label = "X: 20"] 
+
+ 	Node2883768[label = "X: 21"] 
+
+ 	Node4317861[color="#FFFF99",style=filled, label = "13,21\n #FFFF99"] 
+
+ 	Node8505756[label = "14,21\n #FFFF99"] 
+
+ 	Node8505756[color="#FFFF99",style=filled, label = "14,21\n #FFFF99"] 
+
+ 	Node7408600[label = "15,21\n #FFFF99"] 
+
+ 	Node7408600[color="#FFFF99",style=filled, label = "15,21\n #FFFF99"] 
+
+ 	Node2883768[label = "X: 21"] 
+	{rank = same; Node86160,Node86160,Node5808154,Node36227,Node6532572,Node1208423,Node2575651,Node402181,Node3846530,Node6613174,Node6601116,Node5020747,Node2450621,Node8581134,Node464834,Node3034588,Node6764874,Node4477063,Node7306820,Node1012461,Node4072473,Node1132418,Node2883768};
+	{rank = same; Node6438553,Node6438553};
+	{rank = same; Node1073407,Node1073407};
+	{rank = same; Node3636323,Node3636323};
+	{rank = same; Node6331570,Node6331570};
+	{rank = same; Node3683432,Node3683432};
+	{rank = same; Node5721730,Node5721730};
+	{rank = same; Node6074403,Node6074403};
+	{rank = same; Node3873737,Node3873737};
+	{rank = same; Node6183406,Node6183406};
+	{rank = same; Node5031887,Node5031887};
+	{rank = same; Node2871522,Node2871522,Node7012644,Node2133868,Node4242861,Node6606663,Node7246478,Node2235354,Node5674035};
+	{rank = same; Node3153554,Node3153554,Node6847841,Node4737040,Node6277155,Node3577703,Node2504213};
+	{rank = same; Node548668,Node548668,Node8107701,Node5356557,Node6351664,Node12617,Node7321775,Node8073048,Node3781122,Node1338148,Node4317861};
+	{rank = same; Node526635,Node526635,Node8486857,Node3352854,Node7778244,Node8212462,Node276783,Node5236104,Node5847056,Node4718503,Node1433801,Node8484056,Node4383300,Node7874734,Node8505756};
+	{rank = same; Node5240443,Node5240443,Node1338717,Node7605686,Node7778168,Node3150134,Node6722320,Node1664571,Node3767157,Node3107675,Node2482843,Node6737421,Node828263,Node186736,Node3485041,Node7408600};
+	{rank = same; Node6486114,Node6486114,Node2533486,Node2601755,Node1632638,Node2158022,Node5164840,Node6783010};
+	{rank = same; Node7265670,Node7265670,Node1465354,Node2478226,Node8411725,Node7688664,Node8234646};
+	{rank = same; Node2584237,Node2584237,Node2156870,Node5811325,Node3713763,Node3643641,Node5462551};
+	{rank = same; Node8383872,Node8383872};
+	{rank = same; Node4341170,Node4341170};
+	{rank = same; Node3006045,Node3006045};
+	{rank = same; Node8250218,Node8250218};
+	{rank = same; Node1874701,Node1874701};
+	{rank = same; Node4677867,Node4677867};
+	{rank = same; Node8207380,Node8207380};
+	{rank = same; Node3772557,Node3772557};
+	{rank = same; Node7370085,Node7370085};
+	{rank = same; Node2331234,Node2331234};
+	{rank = same; Node373268,Node373268};
+	{rank = same; Node4202401,Node4202401};
+	{rank = same; Node1128168,Node1128168};
+	{rank = same; Node6605303,Node6605303};
+	{rank = same; Node6486177,Node6486177};
+	{rank = same; Node6438868,Node6438868};
+	{rank = same; Node2402465,Node2402465};
+	{rank = same; Node1742120,Node1742120};
+	{rank = same; Node2526443,Node2526443};
+	{rank = same; Node4568564,Node4568564};
+	{rank = same; Node6186061,Node6186061,Node8682601,Node7782551,Node2050216};
+	{rank = same; Node7846716,Node7846716,Node7230205,Node3055821,Node8201773,Node5262283,Node3116707,Node8042580,Node3546745};
 }

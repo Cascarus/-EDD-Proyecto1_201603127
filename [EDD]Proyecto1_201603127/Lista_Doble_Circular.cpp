@@ -265,6 +265,52 @@ void Lista_Doble_Circular::crear_IMG(Nodo_c *nodo) {
 	imagen_completa.graficar2(nodo->id, imagen_completa.Cprincipal);
 }
 
+void Lista_Doble_Circular::crear_IMG2(Nodo_c * nodo, Nodo_ABB *rai){
+	relaciones = "";
+	labels = "";
+	listas = "";
+	ranks = "";
+	string bin = "";
+
+	ranks = "{ rank = same; Node" + cadena(nodo->id);
+
+	if (nodo->primero_lista != NULL) {
+		relaciones += "\tNodeI" + cadena(nodo->id) + "->" + "NodeCapa_" + cadena(nodo->primero_lista->dato) + "_" + cadena(nodo->id) + "[constraint=true]; \n";
+		Lista_Simple lista = new Lista_Simple(true);
+		listas += lista.recorrer3(nodo->id, nodo->primero_lista);
+	}
+
+	labels += "\n \tNodeI" + cadena(nodo->id) + "[label = \"imagen_" + cadena(nodo->id) + "\"] \n";
+	ranks += ",Node" + cadena(nodo->id);
+	//current = current->Siguiente;
+
+	ranks += "};\n";
+
+	Binario temporal = new Binario(true);
+	bin = temporal.recorrer(rai);
+
+
+	ofstream arch;
+	arch.open("IMG_ABB.dot");
+	arch << "digraph G {" << endl;
+	arch << "subgraph Binario{" << endl;
+	arch << "\tnode [shape=record,width=.9,height=.5,style=filled,fillcolor=orangered2];\n";
+	arch << bin;
+	arch << "}" << endl;
+	arch << "subgraph Lista{" << endl;
+	arch << "\tnode [shape=record,width=.9,height=.5];" << endl;
+	arch << relaciones;
+	arch << labels;
+	arch << "// empiezan las relaciones de listas con las imagenes" << endl;
+	arch << listas;
+	arch << ranks;
+	arch << "}" << endl;
+	arch << "}" << endl;
+	arch.close();
+	system("dot -Tpng IMG_ABB.dot -o IMG_ABB.png -Gcharset=latin1");
+	system("IMG_ABB.png");
+}
+
 void Lista_Doble_Circular::splitear_Capas(string str, Matriz imagen_completa, int id) {
 	string palabra = "";
 	bool encontradoF, encontradoC;

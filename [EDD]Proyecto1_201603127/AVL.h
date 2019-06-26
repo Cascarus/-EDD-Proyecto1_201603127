@@ -56,22 +56,32 @@ private:
 
 public:
 	Nodo_Arbol *raiz;
-	string grafica;
+	Nodo_Arbol *raiz_Espejo;
+	string grafica = "";
+	string preOrd = "";
+	string inOrd = "";
+	string posOrd = "";
+
 	AVL(bool cosa);
 	Nodo_Arbol *insertar(Nodo_Arbol *N, string nick);
 	void agregar(string nombre);
 	Nodo_Arbol *mini(Nodo_Arbol *nodo);
 	Nodo_Arbol *eliminar(Nodo_Arbol *raiz, string usuario);
 	void my_delete(string usuario);
-	//void AVL::update(string nombre, Nodo_c *actual);
 	void AVL::update(string nombre, Lista_Doble_Circular actual);
-	//void actualizar(Nodo_Arbol *current, string nick, Nodo_c *actual);
 	void actualizar(Nodo_Arbol *current, string nick, Lista_Doble_Circular actual);
+	void AVL::update2(string nombre, string actual);
+	void actualizar2(Nodo_Arbol *current, string nick, string actual);
 	Nodo_Arbol *buscarNodo(string usuario);
 	Nodo_Arbol *buscarNod(Nodo_Arbol *raiz, string usuario);
 	void graficar();
+	void Espejo(Nodo_Arbol *raiz_E);
+	void graficar_Espejo();
 	void recorrer(Nodo_Arbol *inicio);
 	string cadena(int n);
+	void PreOrden(Nodo_Arbol *raiz);
+	void InOrden(Nodo_Arbol *raiz);
+	void PostOrden(Nodo_Arbol *raiz);
 	bool existe(string usuario);
 	
 };

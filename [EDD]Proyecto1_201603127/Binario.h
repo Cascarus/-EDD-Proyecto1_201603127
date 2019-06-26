@@ -23,6 +23,7 @@ public:
 	Nodo_ABB *raiz;
 	Nodo_ABB *raiz_Espejo;
 	Nodo_Matriz *principal;
+	string hojas = "";
 	string preOrd = "";
 	string inOrd = "";
 	string posOrd = "";
@@ -47,6 +48,8 @@ public:
 	void PreOrden(Nodo_ABB *raiz);
 	void InOrden(Nodo_ABB *raiz);
 	void PostOrden(Nodo_ABB *raiz);
+	void buscarHojas(Nodo_ABB *raiz);
+	string bHojas();
 	string cadena(int n);
 };
 
