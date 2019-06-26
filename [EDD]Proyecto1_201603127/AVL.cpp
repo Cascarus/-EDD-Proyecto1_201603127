@@ -195,15 +195,19 @@ void AVL::my_delete(string nombre) {
 	raiz = eliminar(raiz, data);
 }
 
-void AVL::update(string nombre, Nodo_c *actual) {
-
-	actualizar(raiz, nombre, actual);
+void AVL::update(string nombre, Lista_Doble_Circular actual) {
+	string data = nombre;
+	std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+	actualizar(raiz, data, actual);
 }
 
-void AVL::actualizar(Nodo_Arbol *current, string nick, Nodo_c *actual) {
+void AVL::actualizar(Nodo_Arbol *current, string nick, Lista_Doble_Circular actual) {
 	if (current != NULL) {
-		if (current->nick == nick) {
-			current->primero = actual;
+		string data = current->nick;
+		std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+		if (data == nick) {
+			current->primero = actual.primero;
+			current->ultimo = actual.ultimo;
 		}
 		else {
 			actualizar(current->izquierda, nick, actual);

@@ -73,6 +73,11 @@ int main() {
 			mUsuarios();
 			break;
 
+		case 4:
+			system("cls");
+			mImagenes();
+			break;
+
 		case 5:
 			cout << "Finalizando.";
 			for (int a = 0; a < 10; a++) {
@@ -437,13 +442,14 @@ void mUsuarios() {
 
 void mImagenes() {
 	int opcion = 0;
-	string palabra;
+	string linea, id_img;
+	string imagenes_usurio = "";
 
 	while (opcion != 4) {
 		system("cls");
 		cout << "-----------------MENU IMAGENES-----------------" << endl;
-		cout << "|   1. AGREGAR USUARIO                        |" << endl;
-		cout << "|   2. ELIMINAR USUARIO                       |" << endl;
+		cout << "|   1. AGREGAR IMAGEN                         |" << endl;
+		cout << "|   2. ELIMINAR IMAGEN                       |" << endl;
 		cout << "|   3. MODIFICAR USUARIO                      |" << endl;
 		cout << "|   4. SALIR                                  |" << endl;
 		cout << "-----------------------------------------------" << endl;
@@ -453,7 +459,7 @@ void mImagenes() {
 		switch (opcion) {
 		case 1:
 			system("cls");
-			cout << "Ingrese el id del nuevo usuario>>";
+			/*cout << "Ingrese el id del nuevo usuario>>";
 			cin >> palabra;
 			if (!Usuarios.existe(palabra)) {
 				Usuarios.agregar(palabra);
@@ -461,21 +467,55 @@ void mImagenes() {
 			}
 			else {
 				cout << "El usuario " << palabra << " ya existe, elija otro ID" << endl;
-			}
+			}*/
 			system("pause");
 			break;
 
 		case 2:
+			int no_imagen, no_capas;
+			Nodo_Arbol *nodAVL;
 			system("cls");
-			cout << "Ingrese el id del usuario que desea eliminar>>";
-			cin >> palabra;
-			if (Usuarios.existe(palabra)) {
-				Usuarios.my_delete(palabra);
-				cout << "El usuario " << palabra << "fue agregado exitosamente!" << endl;
+			cout << "Ingrese el id del usuario que al que desea ingresar>>";
+			cin >> id_img;
+			nodAVL = Usuarios.buscarNodo(id_img);
+			if (nodAVL != NULL) {
+				if (nodAVL->primero != NULL) {
+					Nodo_c *aux_lista = nodAVL->primero;
+					Lista_Doble_Circular lista_d_aux = new Lista_Doble_Circular(true);
+					lista_d_aux.primero = nodAVL->primero;
+					lista_d_aux.ultimo = nodAVL->ultimo;
+
+					do {
+						imagenes_usurio += cadena(aux_lista->id) + " ";
+						aux_lista = aux_lista->Siguiente;
+					} while (aux_lista != nodAVL->primero);
+
+					cout << "Las imagenes que contiene el usuario " << linea << "son: " << imagenes_usurio << endl;
+					cout << "Seleccione la imagen que desea eliminar: ";
+					cin >> linea;
+
+					if (esNumero(linea)) {
+						no_capas = atoi(linea.c_str());
+						Nodo_c *IMG = lista_d_aux.buscarNodo(no_capas);
+						if (IMG != NULL) {
+							lista_d_aux.eliminar(no_capas);
+							Imagenes.eliminar(no_capas);
+							Usuarios.update(id_img, lista_d_aux);
+						}
+					}
+					else {
+						cout << "Debe ingresar solamente numeros positivos" << endl;
+						Sleep(1000);
+					}
+				}
+				else {
+					cout << "El usuario no posee ninguna imagen" << endl;
+					Sleep(1000);
+				}
 			}
-			else {
-				cout << "El usuario " << palabra << " ya existe, elija otro ID" << endl;
-			}
+			imagenes_usurio = "";
+			Usuarios.graficar();
+			Imagenes.graf();
 			system("pause");
 			break;
 
@@ -646,7 +686,7 @@ void splitear_Usuarios(string str) {
 				}
 			}
 
-			Usuarios.update(usuario, ImagenesUsuario.primero);
+			Usuarios.update(usuario, ImagenesUsuario);
 			palabra = "";
 		}
 		else
