@@ -473,13 +473,12 @@ void mImagenes() {
 	string linea, id_img;
 	string imagenes_usurio = "";
 
-	while (opcion != 4) {
+	while (opcion != 3) {
 		system("cls");
 		cout << "-----------------MENU IMAGENES-----------------" << endl;
 		cout << "|   1. AGREGAR IMAGEN                         |" << endl;
 		cout << "|   2. ELIMINAR IMAGEN                        |" << endl;
-		cout << "|   3. MODIFICAR USUARIO                      |" << endl;//VOLARME
-		cout << "|   4. SALIR                                  |" << endl;
+		cout << "|   3. SALIR                                  |" << endl;
 		cout << "-----------------------------------------------" << endl;
 		cout << "ingrese la opcion que desee realizar: ";
 		cin >> opcion;
@@ -544,12 +543,6 @@ void mImagenes() {
 			imagenes_usurio = "";
 			Usuarios.graficar();
 			Imagenes.graf();
-			system("pause");
-			break;
-
-		case 3://VOLERLA
-			system("cls");
-			Usuarios.graficar();
 			system("pause");
 			break;
 
@@ -701,7 +694,8 @@ void reportes() {
 		case 8:
 			system("cls");
 			cout << "Capas que son hojas: ";
-			cout << Arbol_Capas.bHojas();//AGERGAR SLATO LIN
+			cout << Arbol_Capas.bHojas();
+			cout << endl;
 			system("pause");
 			break;
 
